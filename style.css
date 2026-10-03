@@ -1,0 +1,240 @@
+:root {
+    --bg: white;
+    --text: black;
+    --gray: #777;
+    --line: #e5e5e5;
+    --light: #f2f2f2;
+
+}
+
+* {
+
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-top: 24px;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+}
+
+.wrap {
+    width: 470px;
+    position: relative;
+}
+
+.chat-button {
+    position: absolute;
+    top: 5px;
+    right: -35px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
+}
+
+#badge {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: black;
+    color: white;
+    font-size: 11px;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    height: 520px;
+    background: white;
+    border-radius: 25px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.card.hide {
+    display: none;
+}
+
+#chatList {
+    padding: 18px 15px;
+}
+
+h1 {
+    font-size: 21px;
+    margin: 0;
+}
+
+.subtitle {
+    color: var(--gray);
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 5px;
+    border-top: 1px solid var(--line);
+    cursor: pointer;
+}
+
+.item:hover {
+    background: var(--light);
+    border-radius: 10px;
+}
+
+.foto {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.chat-text {
+    flex: 1;
+}
+
+.chat-text b {
+    font-size: 16px;
+}
+
+.chat-text p {
+    margin: 4px 0 0;
+    color: var(--gray);
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.belum-dibaca .chat-text b {
+    font-weight: bold;
+}
+
+.belum-dibaca .chat-text p {
+    color: black;
+}
+
+#chatRoom {
+    display: none;
+    height: 100%;
+}
+
+.chat-header {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--line);
+}
+
+.chat-header button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#profile {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-header small {
+    display: block;
+    color: green;
+    margin-top: 3px;
+}
+
+#messages {
+    height: calc(100% - 125px);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.pesan {
+    width: fit-content;
+    max-width: 75%;
+    padding: 9px 12px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.pesan.dia {
+    background: var(--light);
+    border-bottom-left-radius: 4px;
+}
+
+.pesan.saya {
+    background: black;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.input-area {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-top: 1px solid var(--line);
+}
+
+.input-area input {
+    flex: 1;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 0 15px;
+    outline: none;
+}
+
+.input-area button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 12px;
+    }
+    .wrap {
+        width: 90vw;
+    }
+    .card {
+        height: 80vh;
+    }
+    .chat-button {
+        right: -32px;
+    }
+}
