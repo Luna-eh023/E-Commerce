@@ -3,147 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GEBOY SHOP</title>
+  <title>GEBOY SHOP - Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="nav-inner">
-      <a href="index.html" class="brand">
-        <span class="brand-logo">G</span>
-        <span>GEBOY SHOP</span>
-      </a>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">GEBOY SHOP</a>
 
-      <nav class="nav-links">
+      <nav class="nav">
         <a href="index.html">Beranda</a>
-        <span class="menu-wrap">
-          <button id="menuBtn" class="menu-btn" type="button">
-            Menu <span class="arrow">⌄</span>
+        <div class="menu-wrap">
+          <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false">
+            Menu <span>⌄</span>
           </button>
 
-          <span id="menuDropdown" class="dropdown">
-            <span class="dropdown-title">Pekerjaan Kelompok</span>
+          <div class="menu-dropdown" id="menuDropdown">
+            <div class="menu-heading">Pekerjaan Kelompok</div>
 
-            <span class="group-title">Jonathan</span>
+            <div class="menu-group-title">Jonathan</div>
             <a href="search.html">Search</a>
             <a href="chat.html">Chat</a>
-            <span class="disabled-link">Lacak Barang (belum masuk)</span>
+            <span class="menu-disabled">Lacak Barang (belum masuk)</span>
 
-            <span class="group-title">Charlie</span>
+            <div class="menu-group-title">Charlie</div>
             <a href="faq.html">FAQ</a>
             <a href="notif.html">Notifikasi</a>
-            <span class="disabled-link">Status Pesanan (belum masuk)</span>
+            <span class="menu-disabled">Status Pesanan (belum masuk)</span>
 
-            <span class="group-title">Anggota lain</span>
-            <span class="disabled-link">Profil Akun (belum masuk)</span>
-            <span class="disabled-link">Voucher (belum masuk)</span>
-            <span class="disabled-link">Bonus (belum masuk)</span>
-            <span class="disabled-link">Payment (belum masuk)</span>
-            <span class="disabled-link">Deskripsi Barang (belum masuk)</span>
-            <span class="disabled-link">Kunjungi Toko (belum masuk)</span>
-          </span>
-        </span>
-        <a href="#">Produk</a>
+            <div class="menu-group-title">Anggota lain</div>
+            <span class="menu-disabled">Profil Akun (belum masuk)</span>
+            <span class="menu-disabled">Voucher (belum masuk)</span>
+            <span class="menu-disabled">Bonus (belum masuk)</span>
+            <span class="menu-disabled">Payment (belum masuk)</span>
+            <span class="menu-disabled">Deskripsi Barang (belum masuk)</span>
+            <span class="menu-disabled">Kunjungi Toko (belum masuk)</span>
+          </div>
+        </div>
+        <a href="#produk">Produk</a>
         <a href="faq.html">Bantuan</a>
-        <a href="#">Kontak</a>
+        <a href="chat.html">Kontak</a>
       </nav>
 
       <div class="search-box">
         <span class="search-icon">⌕</span>
-        <input type="search" placeholder="Cari di Geboy Shop" aria-label="Cari di Geboy Shop">
+        <input id="searchInput" type="search" placeholder="Cari di Geboy Shop" aria-label="Cari produk">
       </div>
 
       <a href="cart.html" class="cart-btn" aria-label="Keranjang">
-        <span class="cart-icon">🛒</span>
-        <span id="cartCount" class="cart-count">0</span>
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
       </a>
     </div>
   </header>
 
-  <main class="container">
+  <main class="page">
 
-    <!-- BANNER POLOS, DIBUAT DENGAN NUANSA HERO FAQ -->
-    <section class="hero-card">
-      <div class="hero-copy">
-        <span class="eyebrow">GEBOY SHOP</span>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">GEBOY SHOP</div>
         <h1>Belanja lebih mudah<br>di satu tempat.</h1>
         <p>Temukan produk pilihan, simpan ke keranjang, dan lanjutkan belanja dengan praktis.</p>
         <div class="hero-actions">
-          <a href="#kategori" class="primary-btn">Mulai Belanja</a>
-          <a href="faq.html" class="secondary-btn">Pusat Bantuan</a>
+          <a href="#produk" class="hero-primary">Mulai Belanja</a>
+          <a href="faq.html" class="hero-secondary">Pusat Bantuan</a>
         </div>
       </div>
 
-      <!-- Elemen visual polos, tidak memakai foto -->
-      <div class="hero-art" aria-hidden="true">
-        <div class="art-ring ring-one"></div>
-        <div class="art-ring ring-two"></div>
-        <div class="art-core">G</div>
+      <div class="hero-art">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="ring ring-4">G</div>
       </div>
     </section>
 
-    <section class="section" id="kategori">
+    <!-- KATEGORI -->
+    <section class="category-section">
       <div class="section-heading">
-        <h2>Kategori Populer</h2>
-        <p>Pilih kategori untuk menemukan produk yang kamu butuhkan.</p>
+        <div>
+          <h2>Kategori Populer</h2>
+          <p>Pilih kategori untuk menemukan produk yang kamu butuhkan.</p>
+        </div>
+        <button class="category-toggle" id="categoryToggle" type="button" aria-expanded="false">
+          Buka Kategori
+        </button>
+      </div>
+
+      <div id="categoryPanel" class="category-panel">
+        <button class="category-detail active" data-category="all" type="button">Semua</button>
+        <button class="category-detail" data-category="hp" type="button">Handphone</button>
+        <button class="category-detail" data-category="elektronik" type="button">Elektronik</button>
+        <button class="category-detail" data-category="hewan" type="button">Perawatan Hewan</button>
+        <button class="category-detail" data-category="keuangan" type="button">Keuangan</button>
+        <button class="category-detail" data-category="komputer" type="button">Komputer</button>
       </div>
 
       <div class="category-grid">
-        <a href="#" class="category-card">
+        <button class="category-card active" data-category-card="all" type="button">
           <span class="category-icon">▦</span>
-          <span class="category-name">Kategori</span>
-          <span class="category-desc">Semua produk</span>
-        </a>
-        <a href="#" class="category-card">
+          <strong>Kategori</strong>
+          <small>Semua produk</small>
+        </button>
+
+        <button class="category-card" data-category-card="hp" type="button">
           <span class="category-icon">📱</span>
-          <span class="category-name">Handphone & Tablet</span>
-          <span class="category-desc">Perangkat digital</span>
-        </a>
-        <a href="#" class="category-card">
+          <strong>Handphone &amp; Tablet</strong>
+          <small>Perangkat digital</small>
+        </button>
+
+        <button class="category-card" data-category-card="elektronik" type="button">
           <span class="category-icon">🎧</span>
-          <span class="category-name">Elektronik</span>
-          <span class="category-desc">Perlengkapan elektronik</span>
-        </a>
-        <a href="#" class="category-card">
+          <strong>Elektronik</strong>
+          <small>Perlengkapan elektronik</small>
+        </button>
+
+        <button class="category-card" data-category-card="hewan" type="button">
           <span class="category-icon">🐾</span>
-          <span class="category-name">Perawatan Hewan</span>
-          <span class="category-desc">Kebutuhan hewan</span>
-        </a>
-        <a href="#" class="category-card">
+          <strong>Perawatan Hewan</strong>
+          <small>Kebutuhan hewan</small>
+        </button>
+
+        <button class="category-card" data-category-card="keuangan" type="button">
           <span class="category-icon">🪙</span>
-          <span class="category-name">Keuangan</span>
-          <span class="category-desc">Layanan keuangan</span>
-        </a>
-        <a href="#" class="category-card">
+          <strong>Keuangan</strong>
+          <small>Layanan keuangan</small>
+        </button>
+
+        <button class="category-card" data-category-card="komputer" type="button">
           <span class="category-icon">💻</span>
-          <span class="category-name">Komputer & Laptop</span>
-          <span class="category-desc">Perangkat komputer</span>
-        </a>
+          <strong>Komputer &amp; Laptop</strong>
+          <small>Perangkat komputer</small>
+        </button>
       </div>
     </section>
 
-    <section class="section">
+    <!-- TOP UP -->
+    <section class="topup-section">
       <div class="section-heading">
-        <h2>Top Up & Tagihan</h2>
-        <p>Layanan cepat untuk kebutuhan harian.</p>
+        <div>
+          <h2>Top Up &amp; Tagihan</h2>
+          <p>Layanan cepat untuk kebutuhan harian.</p>
+        </div>
+        <a href="#" class="see-all">Lihat Semua</a>
       </div>
 
-      <div class="service-card">
-        <div class="service-tabs">
+      <div class="topup-card">
+        <div class="tabs">
           <button class="tab active" type="button">Pulsa</button>
           <button class="tab" type="button">Paket Data</button>
           <button class="tab" type="button">Listrik PLN</button>
           <button class="tab" type="button">Roaming</button>
         </div>
 
-        <div class="service-form">
-          <label>
+        <div class="topup-form">
+          <label class="field">
             <span>Nomor Telepon</span>
             <input type="text" placeholder="Masukan Nomor">
           </label>
 
-          <label>
+          <label class="field">
             <span>Nominal</span>
             <select>
               <option value="">Pilih nominal</option>
@@ -154,39 +175,175 @@
             </select>
           </label>
 
-          <button type="button" class="buy-btn">Beli</button>
+          <button class="buy-btn" type="button">Beli</button>
         </div>
       </div>
     </section>
 
-    <section class="section quick-links">
+    <!-- PRODUK -->
+    <section id="produk" class="products-section">
+      <div class="section-heading">
+        <div>
+          <h2>Produk Pilihan</h2>
+          <p id="productInfo">Menampilkan semua produk.</p>
+        </div>
+      </div>
+
+      <div id="productsGrid" class="products-grid">
+
+        <article class="product-card" data-category="hp" data-name="Smartphone Geboy A15">
+          <div class="product-icon">📱</div>
+          <span class="product-category">Handphone</span>
+          <h3>Smartphone Geboy A15</h3>
+          <p class="product-desc">Smartphone layar besar untuk kebutuhan harian.</p>
+          <strong class="product-price">Rp2.499.000</strong>
+          <button class="add-cart" type="button"
+            data-id="hp-1"
+            data-name="Smartphone Geboy A15"
+            data-price="2499000"
+            data-icon="📱">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="hp" data-name="Tablet Geboy T10">
+          <div class="product-icon">📲</div>
+          <span class="product-category">Handphone</span>
+          <h3>Tablet Geboy T10</h3>
+          <p class="product-desc">Tablet ringkas untuk belajar dan hiburan.</p>
+          <strong class="product-price">Rp1.799.000</strong>
+          <button class="add-cart" type="button"
+            data-id="hp-2"
+            data-name="Tablet Geboy T10"
+            data-price="1799000"
+            data-icon="📲">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="elektronik" data-name="Headphone Wireless">
+          <div class="product-icon">🎧</div>
+          <span class="product-category">Elektronik</span>
+          <h3>Headphone Wireless</h3>
+          <p class="product-desc">Headphone nirkabel untuk musik dan meeting.</p>
+          <strong class="product-price">Rp299.000</strong>
+          <button class="add-cart" type="button"
+            data-id="el-1"
+            data-name="Headphone Wireless"
+            data-price="299000"
+            data-icon="🎧">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="elektronik" data-name="Smart TV 43 Inch">
+          <div class="product-icon">📺</div>
+          <span class="product-category">Elektronik</span>
+          <h3>Smart TV 43 Inch</h3>
+          <p class="product-desc">Televisi pintar untuk hiburan di rumah.</p>
+          <strong class="product-price">Rp3.499.000</strong>
+          <button class="add-cart" type="button"
+            data-id="el-2"
+            data-name="Smart TV 43 Inch"
+            data-price="3499000"
+            data-icon="📺">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="hewan" data-name="Makanan Kucing Premium">
+          <div class="product-icon">🐱</div>
+          <span class="product-category">Perawatan Hewan</span>
+          <h3>Makanan Kucing Premium</h3>
+          <p class="product-desc">Makanan kucing untuk kebutuhan sehari-hari.</p>
+          <strong class="product-price">Rp129.000</strong>
+          <button class="add-cart" type="button"
+            data-id="hewan-1"
+            data-name="Makanan Kucing Premium"
+            data-price="129000"
+            data-icon="🐱">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="hewan" data-name="Shampoo Hewan">
+          <div class="product-icon">🐶</div>
+          <span class="product-category">Perawatan Hewan</span>
+          <h3>Shampoo Hewan</h3>
+          <p class="product-desc">Shampoo untuk menjaga kebersihan hewan peliharaan.</p>
+          <strong class="product-price">Rp89.000</strong>
+          <button class="add-cart" type="button"
+            data-id="hewan-2"
+            data-name="Shampoo Hewan"
+            data-price="89000"
+            data-icon="🐶">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="keuangan" data-name="Voucher Belanja">
+          <div class="product-icon">🎟️</div>
+          <span class="product-category">Keuangan</span>
+          <h3>Voucher Belanja</h3>
+          <p class="product-desc">Voucher digital.</p>
+          <strong class="product-price">Rp50.000</strong>
+          <button class="add-cart" type="button"
+            data-id="keuangan-1"
+            data-name="Voucher Belanja"
+            data-price="50000"
+            data-icon="🎟️">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="keuangan" data-name="Saldo Digital">
+          <div class="product-icon">💳</div>
+          <span class="product-category">Keuangan</span>
+          <h3>Saldo Digital</h3>
+          <p class="product-desc">Saldo digital untuk transaksi online.</p>
+          <strong class="product-price">Rp100.000</strong>
+          <button class="add-cart" type="button"
+            data-id="keuangan-2"
+            data-name="Saldo Digital"
+            data-price="100000"
+            data-icon="💳">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="komputer" data-name="Mechanical Keyboard">
+          <div class="product-icon">⌨️</div>
+          <span class="product-category">Komputer</span>
+          <h3>Mechanical Keyboard</h3>
+          <p class="product-desc">Keyboard mekanikal untuk desktop dan laptop.</p>
+          <strong class="product-price">Rp549.000</strong>
+          <button class="add-cart" type="button"
+            data-id="komputer-1"
+            data-name="Mechanical Keyboard"
+            data-price="549000"
+            data-icon="⌨️">+ Keranjang</button>
+        </article>
+
+        <article class="product-card" data-category="komputer" data-name="Wireless Mouse">
+          <div class="product-icon">🖱️</div>
+          <span class="product-category">Komputer</span>
+          <h3>Wireless Mouse</h3>
+          <p class="product-desc">Mouse wireless untuk aktivitas kerja dan belajar.</p>
+          <strong class="product-price">Rp179.000</strong>
+          <button class="add-cart" type="button"
+            data-id="komputer-2"
+            data-name="Wireless Mouse"
+            data-price="179000"
+            data-icon="🖱️">+ Keranjang</button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- QUICK ACCESS -->
+    <section class="quick-access">
       <div class="section-heading centered">
-        <h2>Akses Cepat</h2>
-        <p>Menu menuju pekerjaan anggota kelompok.</p>
+        <div>
+          <h2>Akses Cepat</h2>
+          <p>Menu menuju pekerjaan anggota kelompok.</p>
+        </div>
       </div>
 
       <div class="quick-grid">
-        <a href="search.html" class="quick-card">
-          <span>🔎</span>
-          <div><strong>Search</strong><small>Fitur pencarian</small></div>
-        </a>
-        <a href="chat.html" class="quick-card">
-          <span>💬</span>
-          <div><strong>Chat</strong><small>Komunikasi pengguna</small></div>
-        </a>
-        <a href="faq.html" class="quick-card">
-          <span>❓</span>
-          <div><strong>FAQ</strong><small>Pertanyaan umum</small></div>
-        </a>
-        <a href="notif.html" class="quick-card">
-          <span>🔔</span>
-          <div><strong>Notifikasi</strong><small>Informasi terbaru</small></div>
-        </a>
+        <a href="search.html" class="quick-card"><span>⌕</span><strong>Search</strong><small>Jonathan</small></a>
+        <a href="chat.html" class="quick-card"><span>💬</span><strong>Chat</strong><small>Jonathan</small></a>
+        <a href="faq.html" class="quick-card"><span>?</span><strong>FAQ</strong><small>Charlie</small></a>
+        <a href="notif.html" class="quick-card"><span>🔔</span><strong>Notifikasi</strong><small>Charlie</small></a>
       </div>
     </section>
 
   </main>
 
   <script src="script.js"></script>
+  <script src="cart.js"></script>
 </body>
 </html>
