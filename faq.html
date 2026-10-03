@@ -1,79 +1,125 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FAQ - Digeboy</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>FAQ - Digeboy</title>
+    <link rel="stylesheet" href="faq.css">
 
 </head>
+
 <body>
-<header>
- <div class="logo"><span class="avatar">🦖</span>FAQ - Digeboy</div>
- <nav class="top" id="topnav"></nav>
- <input class="search" id="gs" placeholder="Search in site" aria-label="Search in site">
-</header>
-<div class="bar"><nav id="sidenav" aria-label="Pintasan"></nav></div>
-<div class="layout" id="top">
-<main>
+    <header>
+        <div class="logo"><span class="avatar">🦖</span>FAQ - Digeboy</div>
+        <nav class="top" id="topnav"></nav>
+        <input class="search" id="gs" placeholder="Search in site" aria-label="Search in site">
+    </header>
+    <div class="bar">
+        <nav id="sidenav" aria-label="Pintasan"></nav>
+    </div>
+    <div class="layout" id="top">
+        <main>
 
-<div class="hero">
- <h1>Frequently Asked Questions</h1>
- <div class="img big"></div>
- <div class="hbody">
-  <p>Temukan jawaban cepat untuk pertanyaan paling sering ditanyakan. Jika belum menemukan solusi, kirim pertanyaan ke tim kami.</p>
-  <input id="hs" placeholder="Cari pertanyaan (contoh: pengiriman, refund, akun)">
-  <div class="row"><button class="btn light" onclick="go('kontak')">Hubungi Kami</button><button class="btn dark" onclick="go('kontak')">Ajukan Pertanyaan</button></div>
-  <div class="chips"><button class="chip">Umum</button><button class="chip">Akun</button><button class="chip">Pembayaran</button><button class="chip">Pengiriman</button><button class="chip">Refund</button></div>
- </div>
-</div>
+            <div class="hero">
+                <h1>Frequently Asked Questions</h1>
+                <div class="img big"></div>
+                <div class="hbody">
+                    <p>Temukan jawaban cepat untuk pertanyaan paling sering ditanyakan. Jika belum menemukan solusi,
+                        kirim pertanyaan ke tim kami.</p>
+                    <input id="hs" placeholder="Cari pertanyaan (contoh: pengiriman, refund, akun)">
+                    <div class="row"><button class="btn light" onclick="go('kontak')">Hubungi Kami</button><button
+                            class="btn dark" onclick="go('kontak')">Ajukan Pertanyaan</button></div>
+                    <div class="chips"><button class="chip">Umum</button><button class="chip">Akun</button><button
+                            class="chip">Pembayaran</button><button class="chip">Pengiriman</button><button
+                            class="chip">Refund</button></div>
+                </div>
+            </div>
 
-<section id="faq"><div class="wrap">
- <h2>Pilih kategori untuk jawaban cepat</h2>
- <p class="sub">Klik salah satu kartu untuk mempersempit pencarian. Semua jawaban ditulis dengan bahasa yang ringkas dan jelas.</p>
- <div style="text-align:center;margin-top:22px"><button class="btn dark" onclick="go('semua')">Lihat Semua FAQ</button></div>
- <div class="cats" id="cats"></div>
-</div></section>
+            <section id="faq">
+                <div class="wrap">
+                    <h2>Pilih kategori untuk jawaban cepat</h2>
+                    <p class="sub">Klik salah satu kartu untuk mempersempit pencarian. Semua jawaban ditulis dengan
+                        bahasa yang ringkas dan jelas.</p>
+                    <div style="text-align:center;margin-top:22px"><button class="btn dark" onclick="go('semua')">Lihat
+                            Semua FAQ</button></div>
+                    <div class="cats" id="cats"></div>
+                </div>
+            </section>
 
-<section id="populer" style="padding-top:0"><div class="wrap">
- <h2>FAQ Terpopuler</h2><p class="sub">Jawaban yang paling sering dicari pengunjung.</p>
- <div class="pop" id="pop"></div><div class="empty" id="empty">Tidak ada hasil.</div>
-</div></section>
+            <section id="populer" style="padding-top:0">
+                <div class="wrap">
+                    <h2>FAQ Terpopuler</h2>
+                    <p class="sub">Jawaban yang paling sering dicari pengunjung.</p>
+                    <div class="pop" id="pop"></div>
+                    <div class="empty" id="empty">Tidak ada hasil.</div>
+                </div>
+            </section>
 
-<section id="semua"><div class="wrap ans">
- <div class="img"></div>
- <div>
-  <h2>Jawaban lengkap Digeboy</h2>
-  <p class="sub">Gunakan ini sebagai referensi cepat. Jika Anda butuh bantuan lebih lanjut, gunakan tombol di bawah.</p>
-  <div id="full"></div>
- </div>
-</div></section>
+            <section id="semua">
+                <div class="wrap ans">
+                    <div class="img"></div>
+                    <div>
+                        <h2>Jawaban lengkap Digeboy</h2>
+                        <p class="sub">Gunakan ini sebagai referensi cepat. Jika Anda butuh bantuan lebih lanjut,
+                            gunakan tombol di bawah.</p>
+                        <div id="full"></div>
+                    </div>
+                </div>
+            </section>
 
-<section id="kontak"><div class="wrap">
- <div class="fhead"><div><h2>Butuh bantuan yang lebih spesifik?</h2><p class="sub" style="margin-left:0;text-align:left">Tulis pertanyaan Anda. Kami akan merespons secepat mungkin pada jam operasional.</p></div><div class="img"></div></div>
- <form id="f">
-  <div><label>Nomor Pesanan (opsional)</label><input type="text" placeholder="Contoh: ORD-123456"><small>Jika ada, kami bisa menelusuri lebih cepat.</small></div>
-  <div><label>Email Anda</label><input type="email" required placeholder="nama@email.com"><small>Kami akan mengirim balasan ke email ini.</small></div>
-  <div><label>Kategori</label><div class="kchips" id="kc"></div><small>Pilih kategori yang paling sesuai.</small></div>
-  <div><label>Pertanyaan</label><textarea rows="2" required placeholder="Ceritakan masalah/pertanyaan Anda secara singkat"></textarea><small>Cantumkan detail penting seperti tanggal, kendala, dan pesan error bila ada.</small></div>
-  <div class="actions"><button type="button" class="btn light">Cek Status Pesanan</button><button class="btn dark">Kirim Pertanyaan</button></div>
-  <div class="ok" id="ok">Terima kasih! Pertanyaan Anda sudah terkirim.</div>
- </form>
-</div></section>
+            <section id="kontak">
+                <div class="wrap">
+                    <div class="fhead">
+                        <div>
+                            <h2>Butuh bantuan yang lebih spesifik?</h2>
+                            <p class="sub" style="margin-left:0;text-align:left">Tulis pertanyaan Anda. Kami akan
+                                merespons secepat mungkin pada jam operasional.</p>
+                        </div>
+                        <div class="img"></div>
+                    </div>
+                    <form id="f">
+                        <div><label>Nomor Pesanan (opsional)</label><input type="text"
+                                placeholder="Contoh: ORD-123456"><small>Jika ada, kami bisa menelusuri lebih
+                                cepat.</small></div>
+                        <div><label>Email Anda</label><input type="email" required
+                                placeholder="nama@email.com"><small>Kami akan mengirim balasan ke email ini.</small>
+                        </div>
+                        <div><label>Kategori</label>
+                            <div class="kchips" id="kc"></div><small>Pilih kategori yang paling sesuai.</small>
+                        </div>
+                        <div><label>Pertanyaan</label><textarea rows="2" required
+                                placeholder="Ceritakan masalah/pertanyaan Anda secara singkat"></textarea><small>Cantumkan
+                                detail penting seperti tanggal, kendala, dan pesan error bila ada.</small></div>
+                        <div class="actions"><button type="button" class="btn light">Cek Status Pesanan</button><button
+                                class="btn dark">Kirim Pertanyaan</button></div>
+                        <div class="ok" id="ok">Terima kasih! Pertanyaan Anda sudah terkirim.</div>
+                    </form>
+                </div>
+            </section>
 
-<div class="wrap"><footer>
- <div>Butuh bantuan cepat? Lihat FAQ Terpopuler atau ajukan pertanyaan.</div>
- <div>Kebijakan Privasi • Syarat &amp; Ketentuan • digeboy@gmail.com<br><br>© 2026 Digeboy. Semua hak dilindungi.</div>
-</footer></div>
+            <div class="wrap">
+                <footer>
+                    <div>Butuh bantuan cepat? Lihat FAQ Terpopuler atau ajukan pertanyaan.</div>
+                    <div>Kebijakan Privasi • Syarat &amp; Ketentuan • digeboy@gmail.com<br><br>© 2026 Digeboy. Semua hak
+                        dilindungi.</div>
+                </footer>
+            </div>
 
-</main>
-</div>
+        </main>
+    </div>
 
-<div class="fab" id="fab">
- <button id="b1" aria-label="Menu"><svg viewBox="0 0 24 24" fill="#000"><path d="M12 3 3.5 10.2V21h6.2v-6h4.6v6h6.2V10.2z"/></svg></button>
- <button id="b2" aria-label="Pintasan"><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.2 2 5 13.5h5.6L9.8 22 19 10h-5.8z"/></svg></button>
- <div class="glass" id="m1"></div><div class="glass" id="m2"></div>
-</div>
-<script src="script.js"></script>
+    <div class="fab" id="fab">
+        <button id="b1" aria-label="Menu"><svg viewBox="0 0 24 24" fill="#000">
+                <path d="M12 3 3.5 10.2V21h6.2v-6h4.6v6h6.2V10.2z" />
+            </svg></button>
+        <button id="b2" aria-label="Pintasan"><svg viewBox="0 0 24 24" fill="#fff">
+                <path d="M13.2 2 5 13.5h5.6L9.8 22 19 10h-5.8z" />
+            </svg></button>
+        <div class="glass" id="m1"></div>
+        <div class="glass" id="m2"></div>
+    </div>
+    <script src="faq.js"></script>
 </body>
+
 </html>
