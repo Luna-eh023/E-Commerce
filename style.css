@@ -1,0 +1,812 @@
+/* ==========================================================
+   Digeboy Store – all styles in one place
+   Pages: index.html (product), storefront.html, inddex-pay.html
+   Each page sets a class on <body> so its styles stay separate:
+     product page  -> class="shop-page page-product"
+     storefront    -> class="shop-page page-store"
+     payment page  -> class="page-pay"
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Baumans&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+/* ---------- 1. Shared: colors & footer (all pages) ---------- */
+:root {
+  --green: #55b87e;
+  --green-soft: #e6f4ec;
+  --ink: #1c2230;
+  --muted: #5d6673;
+  --line: #e8ebee;
+}
+
+.site-footer {
+  margin-top: auto;
+  background: #5ABC81;
+  color: #fff;
+  text-align: center;
+  padding: 18px 24px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ---------- 2. Shared: product + storefront base & top navbar ---------- */
+.shop-page * { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.shop-page {
+  font-family: "Outfit", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-page svg.i { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+.shop-page .navbar {
+  background: #5ABC81;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.shop-page .brand {
+  font-family: "Baumans", system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.3px;
+}
+
+.shop-page .brand-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--green);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.shop-page .menu {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 16px;
+}
+
+.shop-page .links {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  margin-right: auto;
+}
+
+.shop-page .links a {
+  display: block;
+  color: rgba(255,255,255,.85);
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.shop-page .links a:hover {
+  color: #fff;
+  background: rgba(255,255,255,.12);
+}
+
+.shop-page .links a.active {
+  background: rgba(255,255,255,.22);
+  color: #fff;
+}
+
+.shop-page .nav-search {
+  display: flex;
+  gap: 8px;
+}
+
+.shop-page .nav-search input {
+  height: 36px;
+  width: 210px;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 6px;
+  padding: 0 12px;
+  font: 400 15px "Outfit", sans-serif;
+  background: #fff;
+  color: var(--ink);
+}
+
+.shop-page .nav-search button {
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 6px;
+  font: 500 15px "Outfit", sans-serif;
+  cursor: pointer;
+}
+
+.shop-page .nav-search button:hover {
+  background: #fff;
+  color: var(--green);
+}
+
+.shop-page .nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shop-page .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.shop-page .user-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.shop-page .user-role {
+  font-size: 12px;
+  opacity: .85;
+}
+
+.shop-page .toggle {
+  display: none;
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  color: #fff;
+  width: 40px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.shop-page .toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.shop-page .navbar a:focus-visible,
+.shop-page .navbar button:focus-visible,
+.shop-page .navbar input:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .shop-page .toggle {
+    display: block;
+  }
+
+  .shop-page .menu {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding-bottom: 8px;
+  }
+
+  .shop-page .menu.open {
+    display: flex;
+  }
+
+  .shop-page .links {
+    flex-direction: column;
+  }
+
+  .shop-page .nav-search input {
+    flex: 1;
+    width: auto;
+  }
+}
+
+/* ---------- 3. Product page (index.html) ---------- */
+body.page-product { --bg: #fafafa; }
+.page-product .avatar { background: linear-gradient(135deg, #5b8db8, #e8b923); }
+
+.page-product main {
+  flex: 1;
+  padding: 30px 40px;
+}
+
+.page-product .card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 628px) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.page-product .main-img {
+  width: 100%;
+  aspect-ratio: 628 / 400;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+  background: #ddd;
+}
+
+.page-product .thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.page-product .thumb {
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+}
+
+.page-product .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.page-product .thumb.active {
+  border-color: var(--green);
+}
+
+.page-product .thumb:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+}
+
+.page-product .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-product .tag {
+  align-self: flex-start;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.2px;
+}
+
+.page-product h1 {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin: 6px 0 8px;
+}
+
+.page-product .rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.page-product .rating .stars {
+  color: var(--green);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.page-product .rating strong {
+  font-weight: 600;
+}
+
+.page-product .rating .sep {
+  width: 1px;
+  height: 14px;
+  background: #c9ced4;
+}
+
+.page-product .rating .reviews {
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.page-product .price {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--green);
+  margin: 22px 0 18px;
+  letter-spacing: 0.5px;
+}
+
+.page-product .desc {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: 16.5px;
+  line-height: 1.5;
+  max-width: 60ch;
+}
+
+.page-product .btn {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--green);
+  color: #fff;
+  border: 0;
+  height: 50px;
+  border-radius: 8px;
+  font: 600 16.5px "Outfit", sans-serif;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.page-product .btn:hover {
+  background: #48a56e;
+}
+
+.page-product .btn:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.page-product .btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 1000px) {
+  .page-product .card {
+    grid-template-columns: 1fr;
+  }
+
+  .page-product .btn {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-product main {
+    padding: 16px;
+  }
+
+  .page-product .card {
+    padding: 18px;
+  }
+
+  .page-product h1 {
+    font-size: 28px;
+  }
+}
+
+/* ---------- 4. Storefront page (storefront.html) ---------- */
+body.page-store { --bg: #f5f7f8; --dark: #2a303c; }
+.page-store .avatar { background: url("zr3.jpg") center/cover; }
+
+.page-store main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+}
+
+.page-store .box {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.page-store .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 12px 33px;
+  margin-left: 0;
+}
+
+.page-store .search {
+  display: flex;
+  width: min(100%, 521px);
+}
+
+.page-store .search input {
+  flex: 1;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  padding: 0 12px;
+  font: 400 15px "Outfit", sans-serif;
+  color: var(--ink);
+}
+
+.page-store .search input:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: -2px;
+}
+
+.page-store .search button {
+  width: 42px;
+  height: 38px;
+  border: 0;
+  background: var(--green);
+  color: #fff;
+  border-radius: 0 6px 6px 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.page-store .top-icons {
+  display: flex;
+  gap: 22px;
+  color: var(--muted);
+}
+
+.page-store .top-icons svg {
+  width: 22px;
+  height: 22px;
+}
+
+.page-store .shop {
+  background: var(--dark);
+  border-radius: 12px;
+  margin-top: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.page-store .shop-id {
+  display: flex;
+  gap: 16px;
+  padding: 24px 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  background: rgba(255,255,255,.04);
+  width: 486px;
+  max-width: 100%;
+}
+
+.page-store .shop-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid var(--green);
+  background: url("zr3.jpg") center/cover;
+  flex-shrink: 0;
+}
+
+.page-store .shop-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -.3px;
+}
+
+.page-store .badge {
+  background: var(--green);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.page-store .online {
+  color: var(--green);
+  font-size: 14px;
+  margin: 2px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-store .online::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.page-store .shop-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.page-store .shop-actions button {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 4px;
+  font: 500 14px "Outfit", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.page-store .btn-follow {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
+.page-store .btn-chat {
+  background: var(--green);
+  color: #fff;
+  border: 1px solid var(--green);
+}
+
+.page-store .shop-actions svg {
+  width: 15px;
+  height: 15px;
+}
+
+.page-store .stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 14px 40px;
+  color: #e9edf1;
+  font-size: 15px;
+}
+
+.page-store .stats div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.page-store .stats b {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.page-store .stats svg {
+  width: 15px;
+  height: 15px;
+}
+
+.page-store .tabs {
+  display: flex;
+  gap: 32px;
+  padding: 0 16px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.page-store .tabs a {
+  padding: 16px 4px 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #3a4350;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.page-store .tabs a.active {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.page-store .vouchers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.page-store .voucher {
+  background: #eff8f3;
+  border: 1px dashed #8fb9a2;
+  border-left: 4px solid var(--green);
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.page-store .voucher h3 {
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -.2px;
+}
+
+.page-store .voucher p {
+  font-size: 15px;
+  color: #3a4350;
+  margin-top: 2px;
+}
+
+.page-store .claim {
+  background: var(--green);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  height: 32px;
+  padding: 0 16px;
+  font: 600 14px "Outfit", sans-serif;
+  cursor: pointer;
+}
+
+.page-store .claim:hover {
+  background: #48a56e;
+}
+
+.page-store .rec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 22px 0 14px;
+}
+
+.page-store .rec-head h2 {
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .2px;
+}
+
+.page-store .rec-head a {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.page-store .rec-head svg {
+  width: 14px;
+  height: 14px;
+}
+
+.page-store .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.page-store .grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+  background: #ddd;
+}
+
+@media (max-width: 900px) {
+  .page-store .vouchers {
+    grid-template-columns: 1fr;
+  }
+
+  .page-store .stats {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (max-width: 700px) {
+  .page-store main {
+    padding: 16px;
+  }
+
+  .page-store .topbar {
+    padding: 12px;
+  }
+
+  .page-store .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-store .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-store .stat-dollar {
+  width: 15px;
+  text-align: center;
+}
+
+/* ---------- 5. Payment page (inddex-pay.html) ---------- */
+body.page-pay {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page-pay > .container { flex: 1; width: 100%; }
+.page-pay .navbar { background-color: #5ABC81 !important; }
+.page-pay .navbar-brand { font-family: "Baumans", system-ui, sans-serif; }
+
+/*payment*/
+.payment-information {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.payment-information #payment-form {
+    padding: 0 20px;
+}
+
+.payment-information #items {
+    background-color: #d4d2d2;
+    padding: 0 20px;
+}
+
+.payment-information #estimasi {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#confirm {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding:  10px 0;
+}
+
+.images {
+    border: 2px solid #5ABC81;
+    border-radius: 5px;
+}
+
+div .btn {
+    display: flex;
+    flex-direction: row;
+    background-color: #5ABC81;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>digeboy – Chevrolet C1 Corvette</title>
+<link href="style.css" rel="stylesheet">
+</head>
+<body class="shop-page page-product">
+
+<nav class="navbar">
+  <a class="brand" href="#"><span class="brand-logo">d</span>Digeboy Store</a>
+  <button class="toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  <div class="menu" id="menu">
+    <ul class="links">
+      <li><a href="#" class="active" aria-current="page">Products</a></li>
+      <li><a href="#">Cart</a></li>
+      <li><a href="#">Favorites</a></li>
+    </ul>
+    <form class="nav-search" role="search" onsubmit="return false">
+      <input type="search" placeholder="Search" aria-label="Search">
+      <button type="submit">Search</button>
+    </form>
+    <div class="nav-user">
+      <div class="avatar"></div>
+      <div><div class="user-name">mapumi</div><div class="user-role">Verified Collector</div></div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="card">
+    <div class="gallery">
+      <!-- Placeholder images: swap the src values for real photos later -->
+      <img id="mainImg" class="main-img" src="zr12.avif" alt="Chevrolet C1 Corvette, main view">
+      <div class="thumbs">
+        <button class="thumb" data-full="zr3.jpg" aria-label="View photo 1">
+          <img src="zr3.jpg" alt="">
+        </button>
+        <button class="thumb active" data-full="zr12.avif" aria-label="View photo 2">
+          <img src="zr12.avif" alt="">
+        </button>
+        <button class="thumb" data-full="zr1.avif" aria-label="View photo 3">
+          <img src="zr1.avif" alt="">
+        </button>
+      </div>
+    </div>
+
+    <div class="info">
+      <span class="tag">Classic Automotive</span>
+      <h1>Chevrolet C1 Corvette</h1>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">$$$$$</span>
+        <strong>(5.0 / 5.0 Value Rating)</strong>
+        <span class="sep"></span>
+        <span class="reviews">12 Reviews</span>
+      </div>
+      <div class="price">$105,000.00</div>
+      <p class="desc">The iconic first-generation Chevrolet C1 Corvette. A masterpiece of American sports car history featuring timeless fiberglass bodywork, signature front grille styling, and classic performance.</p>
+
+      <button class="btn" type="button">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11L21 7H6"/></svg>
+        Add to Collection
+      </button>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">Designed by Gerard the cooler guy</footer>
+<script>
+  const mainImg = document.getElementById('mainImg');
+  const thumbs = document.querySelectorAll('.thumb');
+  thumbs.forEach(t => t.addEventListener('click', () => {
+    thumbs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    mainImg.src = t.dataset.full;
+  }));
+</script>
+<script>
+  const toggle = document.querySelector('.toggle'), menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+</body>
+</html>
