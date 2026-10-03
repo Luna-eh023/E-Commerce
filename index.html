@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEBOY SHOP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-logo">G</span>
+        <span>GEBOY SHOP</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Beranda</a>
+        <span class="menu-wrap">
+          <button id="menuBtn" class="menu-btn" type="button">
+            Menu <span class="arrow">⌄</span>
+          </button>
+
+          <span id="menuDropdown" class="dropdown">
+            <span class="dropdown-title">Pekerjaan Kelompok</span>
+
+            <span class="group-title">Jonathan</span>
+            <a href="search.html">Search</a>
+            <a href="chat.html">Chat</a>
+            <span class="disabled-link">Lacak Barang (belum masuk)</span>
+
+            <span class="group-title">Charlie</span>
+            <a href="faq.html">FAQ</a>
+            <a href="notif.html">Notifikasi</a>
+            <span class="disabled-link">Status Pesanan (belum masuk)</span>
+
+            <span class="group-title">Anggota lain</span>
+            <span class="disabled-link">Profil Akun (belum masuk)</span>
+            <span class="disabled-link">Voucher (belum masuk)</span>
+            <span class="disabled-link">Bonus (belum masuk)</span>
+            <span class="disabled-link">Payment (belum masuk)</span>
+            <span class="disabled-link">Deskripsi Barang (belum masuk)</span>
+            <span class="disabled-link">Kunjungi Toko (belum masuk)</span>
+          </span>
+        </span>
+        <a href="#">Produk</a>
+        <a href="faq.html">Bantuan</a>
+        <a href="#">Kontak</a>
+      </nav>
+
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="search" placeholder="Cari di Geboy Shop" aria-label="Cari di Geboy Shop">
+      </div>
+
+      <a href="cart.html" class="cart-btn" aria-label="Keranjang">
+        <span class="cart-icon">🛒</span>
+        <span id="cartCount" class="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- BANNER POLOS, DIBUAT DENGAN NUANSA HERO FAQ -->
+    <section class="hero-card">
+      <div class="hero-copy">
+        <span class="eyebrow">GEBOY SHOP</span>
+        <h1>Belanja lebih mudah<br>di satu tempat.</h1>
+        <p>Temukan produk pilihan, simpan ke keranjang, dan lanjutkan belanja dengan praktis.</p>
+        <div class="hero-actions">
+          <a href="#kategori" class="primary-btn">Mulai Belanja</a>
+          <a href="faq.html" class="secondary-btn">Pusat Bantuan</a>
+        </div>
+      </div>
+
+      <!-- Elemen visual polos, tidak memakai foto -->
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-ring ring-one"></div>
+        <div class="art-ring ring-two"></div>
+        <div class="art-core">G</div>
+      </div>
+    </section>
+
+    <section class="section" id="kategori">
+      <div class="section-heading">
+        <h2>Kategori Populer</h2>
+        <p>Pilih kategori untuk menemukan produk yang kamu butuhkan.</p>
+      </div>
+
+      <div class="category-grid">
+        <a href="#" class="category-card">
+          <span class="category-icon">▦</span>
+          <span class="category-name">Kategori</span>
+          <span class="category-desc">Semua produk</span>
+        </a>
+        <a href="#" class="category-card">
+          <span class="category-icon">📱</span>
+          <span class="category-name">Handphone & Tablet</span>
+          <span class="category-desc">Perangkat digital</span>
+        </a>
+        <a href="#" class="category-card">
+          <span class="category-icon">🎧</span>
+          <span class="category-name">Elektronik</span>
+          <span class="category-desc">Perlengkapan elektronik</span>
+        </a>
+        <a href="#" class="category-card">
+          <span class="category-icon">🐾</span>
+          <span class="category-name">Perawatan Hewan</span>
+          <span class="category-desc">Kebutuhan hewan</span>
+        </a>
+        <a href="#" class="category-card">
+          <span class="category-icon">🪙</span>
+          <span class="category-name">Keuangan</span>
+          <span class="category-desc">Layanan keuangan</span>
+        </a>
+        <a href="#" class="category-card">
+          <span class="category-icon">💻</span>
+          <span class="category-name">Komputer & Laptop</span>
+          <span class="category-desc">Perangkat komputer</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Top Up & Tagihan</h2>
+        <p>Layanan cepat untuk kebutuhan harian.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tabs">
+          <button class="tab active" type="button">Pulsa</button>
+          <button class="tab" type="button">Paket Data</button>
+          <button class="tab" type="button">Listrik PLN</button>
+          <button class="tab" type="button">Roaming</button>
+        </div>
+
+        <div class="service-form">
+          <label>
+            <span>Nomor Telepon</span>
+            <input type="text" placeholder="Masukan Nomor">
+          </label>
+
+          <label>
+            <span>Nominal</span>
+            <select>
+              <option value="">Pilih nominal</option>
+              <option>Rp10.000</option>
+              <option>Rp20.000</option>
+              <option>Rp50.000</option>
+              <option>Rp100.000</option>
+            </select>
+          </label>
+
+          <button type="button" class="buy-btn">Beli</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-links">
+      <div class="section-heading centered">
+        <h2>Akses Cepat</h2>
+        <p>Menu menuju pekerjaan anggota kelompok.</p>
+      </div>
+
+      <div class="quick-grid">
+        <a href="search.html" class="quick-card">
+          <span>🔎</span>
+          <div><strong>Search</strong><small>Fitur pencarian</small></div>
+        </a>
+        <a href="chat.html" class="quick-card">
+          <span>💬</span>
+          <div><strong>Chat</strong><small>Komunikasi pengguna</small></div>
+        </a>
+        <a href="faq.html" class="quick-card">
+          <span>❓</span>
+          <div><strong>FAQ</strong><small>Pertanyaan umum</small></div>
+        </a>
+        <a href="notif.html" class="quick-card">
+          <span>🔔</span>
+          <div><strong>Notifikasi</strong><small>Informasi terbaru</small></div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
