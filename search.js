@@ -1,133 +1,194 @@
-var searchInput =
-    document.getElementById("searchInput");
+if (document.body.classList.contains("halaman-search")) {
 
-var suggestions =
-    document.getElementById("suggestions");
+  var searchInput =
+      document.getElementById("searchInput");
 
-var searchData = [
-    "Laptop ASUS",
-    "Laptop Lenovo",
-    "Laptop Gaming",
-    "Laptop Murah",
-    "Mouse Wireless",
-    "Mouse Gaming",
-    "Keyboard Mechanical",
-    "Keyboard Wireless",
-    "Headset Gaming",
-    "Monitor Gaming",
-    "Monitor 24 Inch",
-    "Monitor 27 Inch",
-    "Kamera Digital",
-    "Printer",
-    "Webcam"
-];
+  var suggestions =
+      document.getElementById("suggestions");
 
-function rekomendasiRandom() {
+  var searchData = [
+      "Laptop ASUS",
+      "Laptop Lenovo",
+      "Laptop Gaming",
+      "Laptop Murah",
+      "Mouse Wireless",
+      "Mouse Gaming",
+      "Keyboard Mechanical",
+      "Keyboard Wireless",
+      "Headset Gaming",
+      "Monitor Gaming",
+      "Monitor 24 Inch",
+      "Monitor 27 Inch",
+      "Kamera Digital",
+      "Printer",
+      "Webcam"
+  ];
 
-    var hasil = [];
-    while (hasil.length < 5) {
-        var index =
-            Math.floor(
-                Math.random() * searchData.length
-            );
+  function rekomendasiRandom() {
+      var hasil = [];
+      while (hasil.length < 5) {
+          var index =
+              Math.floor(
+                  Math.random() * searchData.length
+              );
 
-        var item = searchData[index];
-        if (!hasil.includes(item)) {
-            hasil.push(item);
-        }
-    }
-    return hasil;
+          var item = searchData[index];
+          if (!hasil.includes(item)) {
+              hasil.push(item);
+          }
+      }
+      return hasil;
+  }
+
+  function tampilkanRekomendasi() {
+      var keyword =
+          searchInput.value
+              .toLowerCase()
+              .trim();
+
+      suggestions.innerHTML = "";
+
+      var hasil = [];
+
+      if (keyword == "") {
+          hasil = rekomendasiRandom();
+
+      } else {
+          for (var i = 0; i < searchData.length; i++) {
+              var nama =
+                  searchData[i].toLowerCase();
+              if (nama.includes(keyword)) {
+                  hasil.push(searchData[i]);
+              }
+          }
+      }
+
+      if (hasil.length == 0) {
+          suggestions.innerHTML =
+              '<div class="no-result">' +
+                  'Tidak ada rekomendasi' +
+              '</div>';
+
+          suggestions.style.display =
+              "block";
+
+          return;
+      }
+
+      for (var i = 0; i < hasil.length; i++) {
+          var item =
+              document.createElement("div");
+
+          item.className =
+              "suggestion-item";
+
+          item.innerHTML =
+              '<i class="fa-solid fa-magnifying-glass"></i>' +
+              '<span>' +
+                  hasil[i] +
+              '</span>';
+
+          item.onclick = function() {
+              searchInput.value =
+                  this.querySelector("span").innerHTML;
+
+              suggestions.style.display =
+                  "none";
+          };
+          suggestions.appendChild(item);
+      }
+      suggestions.style.display =
+          "block";
+  }
+
+  searchInput.onfocus = function() {
+      tampilkanRekomendasi();
+  };
+
+  searchInput.oninput = function() {
+      tampilkanRekomendasi();
+  };
+
+  document.onclick = function(event) {
+      if (
+          !event.target.closest(
+              ".search-container"
+          )
+      ) {
+          suggestions.style.display =
+              "none";
+      }
+  };
 }
 
-function tampilkanRekomendasi() {
+if (document.body.classList.contains("halaman-dashboard")) {
 
-    var keyword =
-        searchInput.value
-            .toLowerCase()
-            .trim();
+  const searchInput =
+      document.getElementById(
+          "searchInput"
+      );
 
-    suggestions.innerHTML = "";
+  if (searchInput) {
+      searchInput.addEventListener(
+          "input",
+          () => {
+              const keyword =
+                  searchInput.value
+                      .trim()
+                      .toLowerCase();
 
-    var hasil = [];
+              productCards.forEach(
+                  (card) => {
+                      const name =
+                          card.dataset.name
+                              .toLowerCase();
 
-    if (keyword == "") {
+                      const category =
+                          card.dataset.category
+                              .toLowerCase();
 
-        hasil = rekomendasiRandom();
+                      const match =
+                          keyword === "" ||
+                          name.includes(keyword) ||
+                          category.includes(keyword);
 
-    } else {
+                      const categoryMatch =
+                          selectedCategory === "all" ||
+                          card.dataset.category ===
+                              selectedCategory;
 
-        for (var i = 0; i < searchData.length; i++) {
+                      card.style.display =
+                          match && categoryMatch
+                              ? "block"
+                              : "none";
+                  }
+              );
 
-            var nama =
-                searchData[i].toLowerCase();
-            if (nama.includes(keyword)) {
-                hasil.push(searchData[i]);
-            }
-        }
-    }
+              if (keyword) {
+                  productInfo.textContent =
+                      `Hasil pencarian untuk "${searchInput.value}".`;
+              }
 
-    if (hasil.length == 0) {
+              else {
+                  const names = {
+                      all:
+                          "semua produk",
+                      hp:
+                          "kategori Handphone",
+                      elektronik:
+                          "kategori Elektronik",
+                      hewan:
+                          "kategori Perawatan Hewan",
+                      keuangan:
+                          "kategori Keuangan",
+                      komputer:
+                          "kategori Komputer"
+                  };
 
-        suggestions.innerHTML =
-            '<div class="no-result">' +
-                'Tidak ada rekomendasi' +
-            '</div>';
-
-        suggestions.style.display =
-            "block";
-
-        return;
-    }
-
-    for (var i = 0; i < hasil.length; i++) {
-
-        var item =
-            document.createElement("div");
-
-        item.className =
-            "suggestion-item";
-
-        item.innerHTML =
-            '<i class="fa-solid fa-magnifying-glass"></i>' +
-            '<span>' +
-                hasil[i] +
-            '</span>';
-
-        item.onclick = function() {
-
-            searchInput.value =
-                this.querySelector("span").innerHTML;
-
-            suggestions.style.display =
-                "none";
-        };
-
-        suggestions.appendChild(item);
-    }
-
-    suggestions.style.display =
-        "block";
+                  productInfo.textContent =
+                      `Menampilkan ${names[selectedCategory]}.`;
+              }
+          }
+      );
+  }
 }
-
-searchInput.onfocus = function() {
-
-    tampilkanRekomendasi();
-};
-
-searchInput.oninput = function() {
-
-    tampilkanRekomendasi();
-};
-
-document.onclick = function(event) {
-
-    if (
-        !event.target.closest(
-            ".search-container"
-        )
-    ) {
-
-        suggestions.style.display =
-            "none";
-    }
-};
