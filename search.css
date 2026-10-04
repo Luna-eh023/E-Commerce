@@ -1,22 +1,62 @@
-* {
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 220px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.header-search span {
+    font-size: 14px;
+}
+
+.header-search input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: white;
+}
+
+.header-search input::placeholder {
+
+    color:
+        rgba(255,255,255,.65);
+}
+
+@media (max-width: 800px) {
+.header-search {
+        
+                flex:
+                    1;
+        
+                min-width:
+                    180px;
+    }
+}
+
+.halaman-search, .halaman-search * {
     box-sizing: border-box;
 }
 
-body {
+.halaman-search {
     margin: 0;
     padding: 50px;
     font-family: Arial, sans-serif;
     background: white;
 }
 
-.search-container {
+.halaman-search .search-container {
     width: 450px;
     max-width: 100%;
     margin: auto;
     position: relative;
 }
 
-.search-box {
+.halaman-search .search-box {
     height: 45px;
     display: flex;
     align-items: center;
@@ -27,12 +67,12 @@ body {
     background: white;
 }
 
-.search-box i {
+.halaman-search .search-box i {
     color: #777;
     font-size: 15px;
 }
 
-.search-box input {
+.halaman-search .search-box input {
     width: 100%;
     border: none;
     outline: none;
@@ -40,7 +80,7 @@ body {
     background: transparent;
 }
 
-.suggestions {
+.halaman-search .suggestions {
     display: none;
     position: absolute;
     top: 52px;
@@ -55,7 +95,7 @@ body {
     z-index: 10;
 }
 
-.suggestion-item {
+.halaman-search .suggestion-item {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -64,28 +104,31 @@ body {
     font-size: 14px;
 }
 
-.suggestion-item:hover {
+.halaman-search .suggestion-item:hover {
     background: #f5f5f5;
 }
 
-.suggestion-item i {
+.halaman-search .suggestion-item i {
     color: #777;
     font-size: 13px;
 }
 
-
-.no-result {
+.halaman-search .no-result {
     padding: 12px 15px;
     color: #777;
     font-size: 14px;
 }
 
-
 @media (max-width: 600px) {
-    body {
-        padding: 20px;
+.halaman-search {
+            padding: 20px;
     }
-    .search-container {
-        width: 100%;
+    
+    .halaman-search .search-container {
+            width: 100%;
     }
+}
+
+.halaman-search h1, .halaman-search h2, .halaman-search h3 {
+  font-family: Baumans, cursive;
 }
