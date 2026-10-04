@@ -10,26 +10,6 @@
   --shadow:rgba(0,0,0,.18);
 }
 
-@media (prefers-color-scheme:dark) {
-  :root:not([data-theme="light"]) {
-    --bg:#121212;
-    --fg:#fff;
-    --muted:#a0a0a0;
-    --line:#2c2c2c;
-    --chip:#262626;
-    --shadow:rgba(0,0,0,.7);
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg:#121212;
-  --fg:#fff;
-  --muted:#a0a0a0;
-  --line:#2c2c2c;
-  --chip:#262626;
-  --shadow:rgba(0,0,0,.7);
-}
-
 * {
   box-sizing:border-box;
 }
@@ -220,4 +200,8 @@ h1 {
     opacity:1;
     transform:none;
   }
+}
+
+h1 {
+  font-family:Baumans,cursive;
 }

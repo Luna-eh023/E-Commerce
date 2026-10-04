@@ -24,9 +24,8 @@ function buatItem(data, urutan) {
     const tombol = document.createElement("button");
     tombol.textContent = e;
     tombol.onclick = function () {
-      // hapus pilihan lama, lalu tandai yang diklik
       kotakEmoji.querySelectorAll("button").forEach(function (b) { b.classList.remove("on"); });
-      void tombol.offsetWidth; // supaya animasi bisa diulang
+      void tombol.offsetWidth;
       tombol.classList.add("on");
     };
     kotakEmoji.appendChild(tombol);

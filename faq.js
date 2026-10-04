@@ -1,20 +1,19 @@
-const cats=[
-  ["Umum","Panduan singkat","Meliputi cara menggunakan layanan, ketentuan dasar, dan informasi akun.","linear-gradient(#f2a05a,#6b2e1b)"],
-  ["Akun","Login & profil","Masalah lupa password, verifikasi email/nomor, dan pengaturan profil.","linear-gradient(#cfd6bf,#6c7a50)"],
-  ["Pembayaran","Metode & kendala","Pembayaran gagal, perubahan metode, dan bukti transaksi.","linear-gradient(#f0c242,#c4232b)"],
-  ["Pengiriman","Estimasi & pelacakan","Resi, keterlambatan, dan langkah jika paket tidak ditemukan.","linear-gradient(#5a4a3a,#b8b8c4)"]];
+const cats = [
+  ["Umum", "Panduan singkat", "Meliputi cara menggunakan layanan, ketentuan dasar, dan informasi akun.", "linear-gradient(#f2a05a,#6b2e1b)"],
+  ["Akun", "Login & profil", "Masalah lupa password, verifikasi email/nomor, dan pengaturan profil.", "linear-gradient(#cfd6bf,#6c7a50)"],
+  ["Pembayaran", "Metode & kendala", "Pembayaran gagal, perubahan metode, dan bukti transaksi.", "linear-gradient(#f0c242,#c4232b)"],
+  ["Pengiriman", "Estimasi & pelacakan", "Resi, keterlambatan, dan langkah jika paket tidak ditemukan.", "linear-gradient(#5a4a3a,#b8b8c4)"]];
 
+const pop = [
+  ["⏱️", "Berapa lama proses pesanan?", "Estimasi waktu", "Umumnya sekitar 1 - 3 hari kerja bergantung pada stock produk."],
+  ["📍", "Bagaimana cara melacak pesanan?", "Status & resi", "Masuk ke Akun → Pesanan → pilih pesanan → lihat nomor resi dan pembaruan."],
+  ["💵", "Refund memerlukan waktu berapa lama?", "Proses pengembalian", "Proses persetujuan 1–2 hari kerja, lalu refund mengikuti jadwal bank (3–7 hari)."],
+  ["🧾", "Saya belum menerima invoice", "Dokumen transaksi", "Cek email Anda atau unduh dari Akun → Riwayat Transaksi → Invoice."]];
 
-const pop=[
-  ["⏱️","Berapa lama proses pesanan?","Estimasi waktu","Umumnya sekitar 1 - 3 hari kerja bergantung pada stock produk."],
-  ["📍","Bagaimana cara melacak pesanan?","Status & resi","Masuk ke Akun → Pesanan → pilih pesanan → lihat nomor resi dan pembaruan."],
-  ["💵","Refund memerlukan waktu berapa lama?","Proses pengembalian","Proses persetujuan 1–2 hari kerja, lalu refund mengikuti jadwal bank (3–7 hari)."],
-  ["🧾","Saya belum menerima invoice","Dokumen transaksi","Cek email Anda atau unduh dari Akun → Riwayat Transaksi → Invoice."]];
-
-const full=[
-  ["Pembayaran gagal — apa yang harus dilakukan?","Pembayaran","Pastikan saldo mencukupi dan data kartu/akun benar. Jika masih gagal, coba metode pembayaran lain.","linear-gradient(#9c2230,#d8a24a)"],
-  ["Pesanan masih 'diproses' terlalu lama","Status Pesanan","Normalnya pemrosesan memakan waktu 1–3 hari kerja. Jika melewati estimasi, periksa ketersediaan stok.","linear-gradient(#7d8452,#d9c9a8)"],
-  ["Paket 'terkirim' tapi saya belum menerimanya","Pengiriman","Cek alamat pengiriman, jam pengantaran, dan status di kurir. Jika paket tidak ditemukan dalam 1 hari, hubungi kami.","linear-gradient(#3b3b3b,#c9a487)"]];
+const full = [
+  ["Pembayaran gagal — apa yang harus dilakukan?", "Pembayaran", "Pastikan saldo mencukupi dan data kartu/akun benar. Jika masih gagal, coba metode pembayaran lain.", "linear-gradient(#9c2230,#d8a24a)"],
+  ["Pesanan masih 'diproses' terlalu lama", "Status Pesanan", "Normalnya pemrosesan memakan waktu 1–3 hari kerja. Jika melewati estimasi, periksa ketersediaan stok.", "linear-gradient(#7d8452,#d9c9a8)"],
+  ["Paket 'terkirim' tapi saya belum menerimanya", "Pengiriman", "Cek alamat pengiriman, jam pengantaran, dan status di kurir. Jika paket tidak ditemukan dalam 1 hari, hubungi kami.", "linear-gradient(#3b3b3b,#c9a487)"]];
 
 const el = function (id) { return document.getElementById(id); };
 
