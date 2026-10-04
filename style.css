@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+
+
 /* GENERAL */
 
 :root {
@@ -64,6 +67,17 @@ a {
 button,
 input {
     font: inherit;
+}
+
+
+/* FONT JUDUL */
+
+h1 {
+
+    font-family:
+        Baumans,
+        cursive;
+
 }
 
 
@@ -871,8 +885,8 @@ input {
     margin: 0;
 
     font-family:
-        Georgia,
-        serif;
+        Baumans,
+        cursive;
 
     font-size:
         clamp(42px, 8vw, 76px);
