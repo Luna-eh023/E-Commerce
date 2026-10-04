@@ -1,11 +1,4 @@
-/* ==========================================================
-   Digeboy Store – all styles in one place
-   Pages: index.html (product), storefront.html, inddex-pay.html
-   Each page sets a class on <body> so its styles stay separate:
-     product page  -> class="shop-page page-product"
-     storefront    -> class="shop-page page-store"
-     payment page  -> class="page-pay"
-   ========================================================== */
+
 
 @import url("https://fonts.googleapis.com/css2?family=Baumans&family=Outfit:wght@300;400;500;600;700&display=swap");
 
@@ -42,7 +35,11 @@ body.shop-page {
 
 .shop-page svg.i { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-.shop-page .navbar {
+/* Same navbar on the payment page: cancel Bootstrap's default list/spacing inside it */
+.page-pay .navbar * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.shop-page .navbar,
+.page-pay .navbar {
   background: #5ABC81;
   color: #fff;
   display: flex;
@@ -55,7 +52,8 @@ body.shop-page {
   z-index: 10;
 }
 
-.shop-page .brand {
+.shop-page .brand,
+.page-pay .brand {
   font-family: "Baumans", system-ui, sans-serif;
   display: flex;
   align-items: center;
@@ -67,33 +65,31 @@ body.shop-page {
   letter-spacing: -.3px;
 }
 
-.shop-page .brand-logo {
+.shop-page .brand-logo,
+.page-pay .brand-logo {
   width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: #fff;
-  color: var(--green);
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 18px;
+  height: 24px;
+  object-fit: contain;
 }
 
-.shop-page .menu {
+.shop-page .menu,
+.page-pay .menu {
   display: flex;
   flex: 1;
   align-items: center;
   gap: 16px;
 }
 
-.shop-page .links {
+.shop-page .links,
+.page-pay .links {
   list-style: none;
   display: flex;
   gap: 4px;
   margin-right: auto;
 }
 
-.shop-page .links a {
+.shop-page .links a,
+.page-pay .links a {
   display: block;
   color: rgba(255,255,255,.85);
   padding: 8px 12px;
@@ -103,22 +99,26 @@ body.shop-page {
   font-size: 16px;
 }
 
-.shop-page .links a:hover {
+.shop-page .links a:hover,
+.page-pay .links a:hover {
   color: #fff;
   background: rgba(255,255,255,.12);
 }
 
-.shop-page .links a.active {
+.shop-page .links a.active,
+.page-pay .links a.active {
   background: rgba(255,255,255,.22);
   color: #fff;
 }
 
-.shop-page .nav-search {
+.shop-page .nav-search,
+.page-pay .nav-search {
   display: flex;
   gap: 8px;
 }
 
-.shop-page .nav-search input {
+.shop-page .nav-search input,
+.page-pay .nav-search input {
   height: 36px;
   width: 210px;
   border: 1px solid rgba(255,255,255,.6);
@@ -129,7 +129,8 @@ body.shop-page {
   color: var(--ink);
 }
 
-.shop-page .nav-search button {
+.shop-page .nav-search button,
+.page-pay .nav-search button {
   height: 36px;
   padding: 0 14px;
   border: 1px solid #fff;
@@ -140,36 +141,42 @@ body.shop-page {
   cursor: pointer;
 }
 
-.shop-page .nav-search button:hover {
+.shop-page .nav-search button:hover,
+.page-pay .nav-search button:hover {
   background: #fff;
   color: var(--green);
 }
 
-.shop-page .nav-user {
+.shop-page .nav-user,
+.page-pay .nav-user {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.shop-page .avatar {
+.shop-page .avatar,
+.page-pay .avatar {
   width: 34px;
   height: 34px;
   border-radius: 50%;
   border: 2px solid #fff;
 }
 
-.shop-page .user-name {
+.shop-page .user-name,
+.page-pay .user-name {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.1;
 }
 
-.shop-page .user-role {
+.shop-page .user-role,
+.page-pay .user-role {
   font-size: 12px;
   opacity: .85;
 }
 
-.shop-page .toggle {
+.shop-page .toggle,
+.page-pay .toggle {
   display: none;
   margin-left: auto;
   background: transparent;
@@ -181,7 +188,8 @@ body.shop-page {
   cursor: pointer;
 }
 
-.shop-page .toggle svg {
+.shop-page .toggle svg,
+.page-pay .toggle svg {
   width: 22px;
   height: 22px;
   stroke: #fff;
@@ -191,18 +199,23 @@ body.shop-page {
 }
 
 .shop-page .navbar a:focus-visible,
+.page-pay .navbar a:focus-visible,
 .shop-page .navbar button:focus-visible,
-.shop-page .navbar input:focus-visible {
+.page-pay .navbar button:focus-visible,
+.shop-page .navbar input:focus-visible,
+.page-pay .navbar input:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 2px;
 }
 
 @media (max-width: 900px) {
-  .shop-page .toggle {
+  .shop-page .toggle,
+  .page-pay .toggle {
     display: block;
   }
 
-  .shop-page .menu {
+  .shop-page .menu,
+  .page-pay .menu {
     display: none;
     flex-basis: 100%;
     flex-direction: column;
@@ -210,15 +223,18 @@ body.shop-page {
     padding-bottom: 8px;
   }
 
-  .shop-page .menu.open {
+  .shop-page .menu.open,
+  .page-pay .menu.open {
     display: flex;
   }
 
-  .shop-page .links {
+  .shop-page .links,
+  .page-pay .links {
     flex-direction: column;
   }
 
-  .shop-page .nav-search input {
+  .shop-page .nav-search input,
+  .page-pay .nav-search input {
     flex: 1;
     width: auto;
   }
@@ -761,8 +777,7 @@ body.page-pay {
   flex-direction: column;
 }
 .page-pay > .container { flex: 1; width: 100%; }
-.page-pay .navbar { background-color: #5ABC81 !important; }
-.page-pay .navbar-brand { font-family: "Baumans", system-ui, sans-serif; }
+.page-pay .avatar { background: linear-gradient(135deg, #5b8db8, #e8b923); }
 
 /*payment*/
 .payment-information {
@@ -780,7 +795,7 @@ body.page-pay {
     padding: 0 20px;
 }
 
-.payment-information #estimasi {
+.payment-information .estimasi {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -810,3 +825,23 @@ div .btn {
     flex-direction: row;
     background-color: #5ABC81;
 }
+
+/* ---------- 6. Interactive states (used by script.js) ---------- */
+.toast-msg { position: fixed; left: 50%; bottom: 80px; transform: translate(-50%, 20px); background: #1c2230; color: #fff; padding: 12px 20px; border-radius: 8px; font: 500 15px "Outfit", system-ui, sans-serif; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 50; max-width: calc(100% - 32px); text-align: center; }
+.toast-msg.show { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .toast-msg { transition: none; } }
+
+.shop-page .cart-count { display: inline-block; min-width: 18px; height: 18px; padding: 0 5px; margin-left: 6px; border-radius: 9px; background: #fff; color: var(--green); font-size: 12px; font-weight: 600; line-height: 18px; text-align: center; }
+.shop-page .cart-count[hidden] { display: none; }
+.shop-page .topbar .cart-link { position: relative; display: inline-flex; color: inherit; }
+.shop-page .topbar .cart-count { position: absolute; top: -9px; right: -11px; margin: 0; background: var(--green); color: #fff; }
+
+.page-store .btn-follow.following { background: var(--green); color: #fff; }
+.page-store .claim.claimed { background: #9fb3a8; cursor: default; }
+.page-store .item { display: block; }
+.page-store .item img { transition: opacity .15s; }
+.page-store .item:hover img { opacity: .92; }
+.page-store .item:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 6px; }
+.is-hidden { display: none !important; }
+.page-store .empty-note { margin: 24px 0; color: var(--muted); text-align: center; font-size: 16px; }
+.page-store .empty-note[hidden] { display: none; }
