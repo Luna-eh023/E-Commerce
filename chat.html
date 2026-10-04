@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="chat.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <button class="chat-button" id="chatButton">
+            <i class="fa-solid fa-comment"></i>
+            <span id="badge">4</span>
+        </button>
+    
+        <div class="card hide" id="card">
+            <div id="chatList">
+                <h1>Chat</h1>
+                <p class="subtitle">
+                Pesan dan percakapan
+            </p>
+            <div id="list"></div>
+        </div>
+
+        <div id="chatRoom">
+            <div class="chat-header">
+                <button id="backButton">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+
+                <div id="profile">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div>
+                    <b id="chatName">Nama</b>
+                    <small>
+                        Online
+                    </small>
+                </div>
+            </div>
+            <div id="messages"></div>
+            <div class="input-area">
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Tulis pesan..."
+                >
+
+                <button id="sendButton">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="chat.js"></script>
+
+</body>
+</html>

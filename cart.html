@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEBOY SHOP - Keranjang</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">GEBOY SHOP</a>
+
+      <nav class="nav">
+        <a href="index.html">Beranda</a>
+        <a href="search.html">Produk</a>
+        <a href="faq.html">Bantuan</a>
+        <a href="chat.html">Kontak</a>
+      </nav>
+
+      <a href="cart.html" class="cart-link active">
+        🛒 Keranjang
+        <span id="cartCount" class="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-title">
+      <div>
+        <p class="eyebrow">GEBOY SHOP</p>
+        <h1>Keranjang Belanja</h1>
+        <p class="subtitle">Barang yang kamu pilih akan tersimpan di browser.</p>
+      </div>
+
+      <a class="back-btn" href="index.html">← Kembali Belanja</a>
+    </div>
+
+    <section class="cart-layout">
+      <div class="cart-card">
+        <div class="card-head">
+          <div>
+            <h2>Produk Dipilih</h2>
+            <p id="cartSummary">0 barang</p>
+          </div>
+          <button id="clearCartBtn" class="clear-btn" type="button">Kosongkan</button>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">🛒</div>
+          <h3>Keranjang masih kosong</h3>
+          <p>Tambahkan produk dari halaman Dashboard terlebih dahulu.</p>
+          <a href="index.html" class="primary-btn">Mulai Belanja</a>
+        </div>
+
+        <div id="cartItems" class="cart-items"></div>
+      </div>
+
+      <aside class="summary-card">
+        <h2>Ringkasan Belanja</h2>
+
+        <div class="summary-row">
+          <span>Total Barang</span>
+          <strong id="totalItems">0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Total Harga</span>
+          <strong id="totalPrice">Rp0</strong>
+        </div>
+
+        <div class="summary-line"></div>
+
+        <div class="summary-row final">
+          <span>Total</span>
+          <strong id="grandTotal">Rp0</strong>
+        </div>
+
+        <button id="checkoutBtn" class="checkout-btn" type="button">Checkout</button>
+        <p id="checkoutMessage" class="checkout-message"></p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="cart.js"></script>
+</body>
+</html>
