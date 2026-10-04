@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Lacak Barang</title>
+
+    <link rel="stylesheet" href="lacak.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <section id="homePage" class="page">
+
+            <header class="main-header">
+
+                <div>
+                    <p class="small-title">
+                        Geboy
+                    </p>
+
+                    <h1>
+                        Lacak Barang
+                    </h1>
+                </div>
+
+                <a class="profile" href="status-pesanan.html" title="Kembali ke Status Pesanan">
+                    ←
+                </a>
+
+            </header>
+
+            <div class="search-box">
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Cari nama atau nomor resi..."
+                >
+
+            </div>
+
+            <div class="filter-container">
+
+                <button
+                    class="filter active"
+                    data-filter="all"
+                >
+                    Semua
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="process"
+                >
+                    Diproses
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="shipping"
+                >
+                    Dikirim
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="delivered"
+                >
+                    Selesai
+                </button>
+            </div>
+
+            <div class="section-title">
+                <h2>
+                    Pengiriman
+                </h2>
+
+                <span id="totalPackage">
+                    3 paket
+                </span>
+            </div>
+
+            <div
+                id="packageList"
+                class="package-list"
+            >
+            </div>
+
+        </section>
+
+        <section
+            id="trackingPage"
+            class="page hidden"
+        >
+            <header class="tracking-header">
+                <button
+                    class="back-button"
+                    id="backButton"
+                >
+                    ←
+                </button>
+
+                <h1>
+                    Detail Pengiriman
+                </h1>
+
+            </header>
+
+            <div
+                id="trackingDetail"
+                class="tracking-detail"
+            >
+            </div>
+
+            <div class="history-section">
+                <div class="history-title">
+                    <h2>
+                        Riwayat Pengiriman
+                    </h2>
+
+                </div>
+
+                <div
+                    id="trackingHistory"
+                    class="tracking-history"
+                >
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="lacak.js"></script>
+
+</body>
+</html>

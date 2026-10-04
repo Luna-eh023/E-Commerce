@@ -1,18 +1,239 @@
-:root {
+.chat-float {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 1000;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: var(--green);
+    color: #0d1711;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    transition: transform .2s;
+}
+
+.chat-float:hover {
+    transform: scale(1.08);
+}
+
+.chat-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff5b5b;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    border: 2px solid var(--bg);
+}
+
+.chat-popup {
+    position: fixed;
+    right: 25px;
+    bottom: 92px;
+    z-index: 999;
+    width: 340px;
+    max-width: calc(100vw - 30px);
+    overflow: hidden;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(90,188,129,.2);
+    box-shadow: 0 20px 50px rgba(0,0,0,.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px) scale(.75);
+    transform-origin: bottom right;
+    pointer-events: none;
+    transition:
+        opacity .25s,
+        visibility .25s,
+        transform .35s
+        cubic-bezier(
+            .2,
+            .9,
+            .3,
+            1.2
+        );
+}
+.chat-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform:
+        translateY(0)
+        scale(1);
+    pointer-events: auto;
+}
+
+.chat-popup .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #5ABC81, #7ad3a0);
+    color: white;
+}
+
+.chat-popup .chat-header strong {
+    display: block;
+    font-size: 17px;
+}
+
+.chat-popup .chat-header span {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    opacity: .8;
+}
+
+.chat-close {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-body {
+    height: 280px;
+    padding: 14px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-message {
+    max-width: 80%;
+    padding: 9px 11px;
+    border-radius: 14px;
+    font-size: 13px;
+}
+
+.chat-message p {
+    margin: 3px 0;
+}
+
+.chat-message small {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    opacity: .6;
+}
+
+.chat-message.seller {
+    align-self: flex-start;
+    background: #eef3ef;
+}
+
+.chat-message.user {
+    align-self: flex-end;
+    background: var(--green);
+    color: #0d1711;
+}
+
+.chat-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid var(--line);
+}
+
+.chat-input input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    outline: none;
+    background: #f4faf6;
+    color: #111;
+}
+
+.chat-input input::placeholder {
+    color:
+        #9aa39d;
+}
+
+.chat-input button {
+    width: 42px;
+    border: none;
+    border-radius: 12px;
+    background: var(--green);
+    color: #0d1711;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.chat-popup.show .chat-message {
+    animation:
+        chatMessageIn .35s both;
+}
+
+.chat-popup.show
+.chat-message:nth-child(2) {
+    animation-delay: .08s;
+}
+
+@keyframes chatMessageIn {
+    from {
+        opacity:
+            0;
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 560px) {
+.chat-float {
+    right: 18px;
+    bottom: 18px;
+    }
+
+    .chat-popup {
+        right: 15px;
+        bottom: 85px;
+        width: calc(100vw - 30px);
+    }
+}
+
+.halaman-chat {
     --bg: white;
     --text: black;
     --gray: #777;
     --line: #e5e5e5;
     --light: #f2f2f2;
-
 }
 
-* {
+.halaman-chat, .halaman-chat * {
 
     box-sizing: border-box;
 }
 
-body {
+.halaman-chat {
     margin: 0;
     padding-top: 24px;
     font-family: Arial, sans-serif;
@@ -22,12 +243,12 @@ body {
     justify-content: center;
 }
 
-.wrap {
+.halaman-chat .wrap {
     width: 470px;
     position: relative;
 }
 
-.chat-button {
+.halaman-chat .chat-button {
     position: absolute;
     top: 5px;
     right: -35px;
@@ -38,11 +259,11 @@ body {
     color: black;
 }
 
-#badge {
+.halaman-chat #badge {
     position: absolute;
     top: -7px;
     right: -7px;
-    background: black;
+    background: #5ABC81;
     color: white;
     font-size: 11px;
     min-width: 16px;
@@ -53,7 +274,7 @@ body {
     align-items: center;
 }
 
-.card {
+.halaman-chat .card {
     height: 520px;
     background: white;
     border-radius: 25px;
@@ -62,27 +283,27 @@ body {
     overflow: hidden;
 }
 
-.card.hide {
+.halaman-chat .card.hide {
     display: none;
 }
 
-#chatList {
+.halaman-chat #chatList {
     padding: 18px 15px;
 }
 
-h1 {
+.halaman-chat h1 {
     font-size: 21px;
     margin: 0;
 }
 
-.subtitle {
+.halaman-chat .subtitle {
     color: var(--gray);
     font-size: 14px;
     margin-top: 5px;
     margin-bottom: 12px;
 }
 
-.item {
+.halaman-chat .item {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -91,12 +312,12 @@ h1 {
     cursor: pointer;
 }
 
-.item:hover {
+.halaman-chat .item:hover {
     background: var(--light);
     border-radius: 10px;
 }
 
-.foto {
+.halaman-chat .foto {
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -107,15 +328,15 @@ h1 {
     font-size: 18px;
 }
 
-.chat-text {
+.halaman-chat .chat-text {
     flex: 1;
 }
 
-.chat-text b {
+.halaman-chat .chat-text b {
     font-size: 16px;
 }
 
-.chat-text p {
+.halaman-chat .chat-text p {
     margin: 4px 0 0;
     color: var(--gray);
     font-size: 14px;
@@ -124,20 +345,20 @@ h1 {
     text-overflow: ellipsis;
 }
 
-.belum-dibaca .chat-text b {
+.halaman-chat .belum-dibaca .chat-text b {
     font-weight: bold;
 }
 
-.belum-dibaca .chat-text p {
+.halaman-chat .belum-dibaca .chat-text p {
     color: black;
 }
 
-#chatRoom {
+.halaman-chat #chatRoom {
     display: none;
     height: 100%;
 }
 
-.chat-header {
+.halaman-chat .chat-header {
     height: 65px;
     display: flex;
     align-items: center;
@@ -146,14 +367,14 @@ h1 {
     border-bottom: 1px solid var(--line);
 }
 
-.chat-header button {
+.halaman-chat .chat-header button {
     border: none;
     background: none;
     font-size: 20px;
     cursor: pointer;
 }
 
-#profile {
+.halaman-chat #profile {
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -163,19 +384,19 @@ h1 {
     align-items: center;
 }
 
-.chat-header small {
+.halaman-chat .chat-header small {
     display: block;
     color: green;
     margin-top: 3px;
 }
 
-#messages {
+.halaman-chat #messages {
     height: calc(100% - 125px);
     padding: 15px;
     overflow-y: auto;
 }
 
-.pesan {
+.halaman-chat .pesan {
     width: fit-content;
     max-width: 75%;
     padding: 9px 12px;
@@ -184,19 +405,19 @@ h1 {
     font-size: 14px;
 }
 
-.pesan.dia {
+.halaman-chat .pesan.dia {
     background: var(--light);
     border-bottom-left-radius: 4px;
 }
 
-.pesan.saya {
-    background: black;
+.halaman-chat .pesan.saya {
+    background: #5ABC81;
     color: white;
     margin-left: auto;
     border-bottom-right-radius: 4px;
 }
 
-.input-area {
+.halaman-chat .input-area {
     height: 60px;
     display: flex;
     align-items: center;
@@ -205,7 +426,7 @@ h1 {
     border-top: 1px solid var(--line);
 }
 
-.input-area input {
+.halaman-chat .input-area input {
     flex: 1;
     height: 40px;
     border: 1px solid var(--line);
@@ -214,27 +435,31 @@ h1 {
     outline: none;
 }
 
-.input-area button {
+.halaman-chat .input-area button {
     width: 40px;
     height: 40px;
     border: none;
     border-radius: 50%;
-    background: black;
+    background: #5ABC81;
     color: white;
     cursor: pointer;
 }
 
 @media (max-width: 600px) {
-    body {
-        padding-top: 12px;
+.halaman-chat {
+            padding-top: 12px;
     }
-    .wrap {
-        width: 90vw;
+    .halaman-chat .wrap {
+            width: 90vw;
     }
-    .card {
-        height: 80vh;
+    .halaman-chat .card {
+            height: 80vh;
     }
-    .chat-button {
-        right: -32px;
+    .halaman-chat .chat-button {
+            right: -32px;
     }
+}
+
+.halaman-chat h1, .halaman-chat h2, .halaman-chat h3 {
+  font-family: Baumans, cursive;
 }
