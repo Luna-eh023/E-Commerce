@@ -1,349 +1,1211 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GEBOY SHOP - Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GEBOY SHOP</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="brand">GEBOY SHOP</a>
+    <header class="navbar">
 
-      <nav class="nav">
-        <a href="index.html">Beranda</a>
-        <div class="menu-wrap">
-          <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false">
-            Menu <span>⌄</span>
-          </button>
+        <div class="navbar-left">
 
-          <div class="menu-dropdown" id="menuDropdown">
-            <div class="menu-heading">Pekerjaan Kelompok</div>
+            <a href="index.html" class="logo">
+                GEBOY SHOP
+            </a>
 
-            <div class="menu-group-title">Jonathan</div>
-            <a href="search.html">Search</a>
-            <a href="chat.html">Chat</a>
-            <span class="menu-disabled">Lacak Barang (belum masuk)</span>
+            <div class="menu-wrapper">
 
-            <div class="menu-group-title">Charlie</div>
-            <a href="faq.html">FAQ</a>
-            <a href="notif.html">Notifikasi</a>
-            <span class="menu-disabled">Status Pesanan (belum masuk)</span>
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    type="button"
+                    aria-expanded="false"
+                >
+                    Menu ▾
+                </button>
 
-            <div class="menu-group-title">Anggota lain</div>
-            <span class="menu-disabled">Profil Akun (belum masuk)</span>
-            <span class="menu-disabled">Voucher (belum masuk)</span>
-            <span class="menu-disabled">Bonus (belum masuk)</span>
-            <span class="menu-disabled">Payment (belum masuk)</span>
-            <span class="menu-disabled">Deskripsi Barang (belum masuk)</span>
-            <span class="menu-disabled">Kunjungi Toko (belum masuk)</span>
-          </div>
+                <div
+                    class="menu-dropdown"
+                    id="menuDropdown"
+                >
+
+                    <a href="search.html">
+                        🔎 Search
+                    </a>
+
+                    <a href="chat.html">
+                        💬 Chat
+                    </a>
+
+                    <a href="notif.html">
+                        🔔 Notifikasi
+                    </a>
+
+                    <a href="faq.html">
+                        ❓ FAQ
+                    </a>
+
+                    <span class="disabled-menu">
+                        📦 Lacak Barang
+                    </span>
+
+                    <span class="disabled-menu">
+                        📋 Status Pesanan
+                    </span>
+
+                    <span class="disabled-menu">
+                        👤 Profil Akun
+                    </span>
+
+                    <span class="disabled-menu">
+                        🎟️ Voucher
+                    </span>
+
+                    <span class="disabled-menu">
+                        🎁 Bonus
+                    </span>
+
+                    <span class="disabled-menu">
+                        💳 Payment
+                    </span>
+
+                    <span class="disabled-menu">
+                        📄 Deskripsi Barang
+                    </span>
+
+                    <span class="disabled-menu">
+                        🏪 Kunjungi Toko
+                    </span>
+
+                </div>
+
+            </div>
+
+            <a href="#produk" class="nav-link">
+                Produk
+            </a>
+
+            <a href="faq.html" class="nav-link">
+                Bantuan
+            </a>
+
+            <a href="#kontak" class="nav-link">
+                Kontak
+            </a>
+
         </div>
-        <a href="#produk">Produk</a>
-        <a href="faq.html">Bantuan</a>
-        <a href="chat.html">Kontak</a>
-      </nav>
 
-      <div class="search-box">
-        <span class="search-icon">⌕</span>
-        <input id="searchInput" type="search" placeholder="Cari di Geboy Shop" aria-label="Cari produk">
-      </div>
+        <div class="navbar-right">
 
-      <a href="cart.html" class="cart-btn" aria-label="Keranjang">
-        🛒
-        <span class="cart-count" id="cartCount">0</span>
-      </a>
+            <div class="header-search">
+
+                <span>🔎</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Cari produk..."
+                >
+
+            </div>
+
+            <button
+                class="notification-bell"
+                id="notificationBell"
+                type="button"
+                aria-label="Notifikasi"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path
+                        d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+                    ></path>
+
+                    <path
+                        d="M10.3 21a1.9 1.9 0 0 0 3.4 0"
+                    ></path>
+
+                </svg>
+
+                <span
+                    class="notification-badge"
+                    id="notificationBadge"
+                >
+                    4
+                </span>
+
+            </button>
+
+            <a
+                href="cart.html"
+                class="cart-button"
+            >
+
+                🛒
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <div
+        class="notification-popup"
+        id="notificationPopup"
+    >
+
+        <div class="notification-popup-header">
+
+            <div>
+
+                <h3>
+                    Notifikasi
+                </h3>
+
+                <span>
+                    Pesan terbaru
+                </span>
+
+            </div>
+
+            <button
+                class="notification-close"
+                id="notificationClose"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div
+            class="notification-list"
+            id="notificationList"
+        >
+        </div>
+
+        <a
+            href="notif.html"
+            class="notification-more"
+        >
+            Lihat semua notifikasi
+        </a>
+
     </div>
-  </header>
 
-  <main class="page">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-badge">GEBOY SHOP</div>
-        <h1>Belanja lebih mudah<br>di satu tempat.</h1>
-        <p>Temukan produk pilihan, simpan ke keranjang, dan lanjutkan belanja dengan praktis.</p>
-        <div class="hero-actions">
-          <a href="#produk" class="hero-primary">Mulai Belanja</a>
-          <a href="faq.html" class="hero-secondary">Pusat Bantuan</a>
-        </div>
-      </div>
+    <main>
 
-      <div class="hero-art">
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
-        <div class="ring ring-3"></div>
-        <div class="ring ring-4">G</div>
-      </div>
-    </section>
+        <section class="hero">
 
-    <!-- KATEGORI -->
-    <section class="category-section">
-      <div class="section-heading">
-        <div>
-          <h2>Kategori Populer</h2>
-          <p>Pilih kategori untuk menemukan produk yang kamu butuhkan.</p>
-        </div>
-        <button class="category-toggle" id="categoryToggle" type="button" aria-expanded="false">
-          Buka Kategori
-        </button>
-      </div>
+            <div class="hero-content">
 
-      <div id="categoryPanel" class="category-panel">
-        <button class="category-detail active" data-category="all" type="button">Semua</button>
-        <button class="category-detail" data-category="hp" type="button">Handphone</button>
-        <button class="category-detail" data-category="elektronik" type="button">Elektronik</button>
-        <button class="category-detail" data-category="hewan" type="button">Perawatan Hewan</button>
-        <button class="category-detail" data-category="keuangan" type="button">Keuangan</button>
-        <button class="category-detail" data-category="komputer" type="button">Komputer</button>
-      </div>
+                <span class="hero-small">
+                    SELAMAT DATANG DI
+                </span>
 
-      <div class="category-grid">
-        <button class="category-card active" data-category-card="all" type="button">
-          <span class="category-icon">▦</span>
-          <strong>Kategori</strong>
-          <small>Semua produk</small>
-        </button>
+                <h1>
+                    GEBOY SHOP
+                </h1>
 
-        <button class="category-card" data-category-card="hp" type="button">
-          <span class="category-icon">📱</span>
-          <strong>Handphone &amp; Tablet</strong>
-          <small>Perangkat digital</small>
-        </button>
+                <p>
+                    Belanja kebutuhan digital dan produk pilihan
+                    dalam satu tempat.
+                </p>
 
-        <button class="category-card" data-category-card="elektronik" type="button">
-          <span class="category-icon">🎧</span>
-          <strong>Elektronik</strong>
-          <small>Perlengkapan elektronik</small>
-        </button>
+                <a
+                    href="#produk"
+                    class="hero-button"
+                >
+                    Belanja Sekarang
+                </a>
 
-        <button class="category-card" data-category-card="hewan" type="button">
-          <span class="category-icon">🐾</span>
-          <strong>Perawatan Hewan</strong>
-          <small>Kebutuhan hewan</small>
-        </button>
+            </div>
 
-        <button class="category-card" data-category-card="keuangan" type="button">
-          <span class="category-icon">🪙</span>
-          <strong>Keuangan</strong>
-          <small>Layanan keuangan</small>
-        </button>
+        </section>
 
-        <button class="category-card" data-category-card="komputer" type="button">
-          <span class="category-icon">💻</span>
-          <strong>Komputer &amp; Laptop</strong>
-          <small>Perangkat komputer</small>
-        </button>
-      </div>
-    </section>
 
-    <!-- TOP UP -->
-    <section class="topup-section">
-      <div class="section-heading">
-        <div>
-          <h2>Top Up &amp; Tagihan</h2>
-          <p>Layanan cepat untuk kebutuhan harian.</p>
-        </div>
-        <a href="#" class="see-all">Lihat Semua</a>
-      </div>
+        <section class="section">
 
-      <div class="topup-card">
-        <div class="tabs">
-          <button class="tab active" type="button">Pulsa</button>
-          <button class="tab" type="button">Paket Data</button>
-          <button class="tab" type="button">Listrik PLN</button>
-          <button class="tab" type="button">Roaming</button>
-        </div>
+            <div class="section-header">
 
-        <div class="topup-form">
-          <label class="field">
-            <span>Nomor Telepon</span>
-            <input type="text" placeholder="Masukan Nomor">
-          </label>
+                <div>
 
-          <label class="field">
-            <span>Nominal</span>
-            <select>
-              <option value="">Pilih nominal</option>
-              <option>Rp10.000</option>
-              <option>Rp20.000</option>
-              <option>Rp50.000</option>
-              <option>Rp100.000</option>
-            </select>
-          </label>
+                    <span class="section-label">
+                        CATEGORY
+                    </span>
 
-          <button class="buy-btn" type="button">Beli</button>
-        </div>
-      </div>
-    </section>
+                    <h2>
+                        Pilih Kategori
+                    </h2>
 
-    <!-- PRODUK -->
-    <section id="produk" class="products-section">
-      <div class="section-heading">
-        <div>
-          <h2>Produk Pilihan</h2>
-          <p id="productInfo">Menampilkan semua produk.</p>
-        </div>
-      </div>
+                    <p id="productInfo">
+                        Menampilkan semua produk.
+                    </p>
 
-      <div id="productsGrid" class="products-grid">
+                </div>
 
-        <article class="product-card" data-category="hp" data-name="Smartphone Geboy A15">
-          <div class="product-icon">📱</div>
-          <span class="product-category">Handphone</span>
-          <h3>Smartphone Geboy A15</h3>
-          <p class="product-desc">Smartphone layar besar untuk kebutuhan harian.</p>
-          <strong class="product-price">Rp2.499.000</strong>
-          <button class="add-cart" type="button"
-            data-id="hp-1"
-            data-name="Smartphone Geboy A15"
-            data-price="2499000"
-            data-icon="📱">+ Keranjang</button>
-        </article>
+                <button
+                    class="category-toggle"
+                    id="categoryToggle"
+                    type="button"
+                    aria-expanded="false"
+                >
+                    Buka Kategori
+                </button>
 
-        <article class="product-card" data-category="hp" data-name="Tablet Geboy T10">
-          <div class="product-icon">📲</div>
-          <span class="product-category">Handphone</span>
-          <h3>Tablet Geboy T10</h3>
-          <p class="product-desc">Tablet ringkas untuk belajar dan hiburan.</p>
-          <strong class="product-price">Rp1.799.000</strong>
-          <button class="add-cart" type="button"
-            data-id="hp-2"
-            data-name="Tablet Geboy T10"
-            data-price="1799000"
-            data-icon="📲">+ Keranjang</button>
-        </article>
+            </div>
 
-        <article class="product-card" data-category="elektronik" data-name="Headphone Wireless">
-          <div class="product-icon">🎧</div>
-          <span class="product-category">Elektronik</span>
-          <h3>Headphone Wireless</h3>
-          <p class="product-desc">Headphone nirkabel untuk musik dan meeting.</p>
-          <strong class="product-price">Rp299.000</strong>
-          <button class="add-cart" type="button"
-            data-id="el-1"
-            data-name="Headphone Wireless"
-            data-price="299000"
-            data-icon="🎧">+ Keranjang</button>
-        </article>
 
-        <article class="product-card" data-category="elektronik" data-name="Smart TV 43 Inch">
-          <div class="product-icon">📺</div>
-          <span class="product-category">Elektronik</span>
-          <h3>Smart TV 43 Inch</h3>
-          <p class="product-desc">Televisi pintar untuk hiburan di rumah.</p>
-          <strong class="product-price">Rp3.499.000</strong>
-          <button class="add-cart" type="button"
-            data-id="el-2"
-            data-name="Smart TV 43 Inch"
-            data-price="3499000"
-            data-icon="📺">+ Keranjang</button>
-        </article>
+            <div
+                class="category-grid"
+                id="categoryPanel"
+            >
 
-        <article class="product-card" data-category="hewan" data-name="Makanan Kucing Premium">
-          <div class="product-icon">🐱</div>
-          <span class="product-category">Perawatan Hewan</span>
-          <h3>Makanan Kucing Premium</h3>
-          <p class="product-desc">Makanan kucing untuk kebutuhan sehari-hari.</p>
-          <strong class="product-price">Rp129.000</strong>
-          <button class="add-cart" type="button"
-            data-id="hewan-1"
-            data-name="Makanan Kucing Premium"
-            data-price="129000"
-            data-icon="🐱">+ Keranjang</button>
-        </article>
+                <button
+                    class="category-card"
+                    data-category-card="all"
+                    type="button"
+                >
 
-        <article class="product-card" data-category="hewan" data-name="Shampoo Hewan">
-          <div class="product-icon">🐶</div>
-          <span class="product-category">Perawatan Hewan</span>
-          <h3>Shampoo Hewan</h3>
-          <p class="product-desc">Shampoo untuk menjaga kebersihan hewan peliharaan.</p>
-          <strong class="product-price">Rp89.000</strong>
-          <button class="add-cart" type="button"
-            data-id="hewan-2"
-            data-name="Shampoo Hewan"
-            data-price="89000"
-            data-icon="🐶">+ Keranjang</button>
-        </article>
+                    <span class="category-icon">
+                        🛍️
+                    </span>
 
-        <article class="product-card" data-category="keuangan" data-name="Voucher Belanja">
-          <div class="product-icon">🎟️</div>
-          <span class="product-category">Keuangan</span>
-          <h3>Voucher Belanja</h3>
-          <p class="product-desc">Voucher digital.</p>
-          <strong class="product-price">Rp50.000</strong>
-          <button class="add-cart" type="button"
-            data-id="keuangan-1"
-            data-name="Voucher Belanja"
-            data-price="50000"
-            data-icon="🎟️">+ Keranjang</button>
-        </article>
+                    <strong>
+                        Semua
+                    </strong>
 
-        <article class="product-card" data-category="keuangan" data-name="Saldo Digital">
-          <div class="product-icon">💳</div>
-          <span class="product-category">Keuangan</span>
-          <h3>Saldo Digital</h3>
-          <p class="product-desc">Saldo digital untuk transaksi online.</p>
-          <strong class="product-price">Rp100.000</strong>
-          <button class="add-cart" type="button"
-            data-id="keuangan-2"
-            data-name="Saldo Digital"
-            data-price="100000"
-            data-icon="💳">+ Keranjang</button>
-        </article>
+                    <span>
+                        Semua Produk
+                    </span>
 
-        <article class="product-card" data-category="komputer" data-name="Mechanical Keyboard">
-          <div class="product-icon">⌨️</div>
-          <span class="product-category">Komputer</span>
-          <h3>Mechanical Keyboard</h3>
-          <p class="product-desc">Keyboard mekanikal untuk desktop dan laptop.</p>
-          <strong class="product-price">Rp549.000</strong>
-          <button class="add-cart" type="button"
-            data-id="komputer-1"
-            data-name="Mechanical Keyboard"
-            data-price="549000"
-            data-icon="⌨️">+ Keranjang</button>
-        </article>
+                </button>
 
-        <article class="product-card" data-category="komputer" data-name="Wireless Mouse">
-          <div class="product-icon">🖱️</div>
-          <span class="product-category">Komputer</span>
-          <h3>Wireless Mouse</h3>
-          <p class="product-desc">Mouse wireless untuk aktivitas kerja dan belajar.</p>
-          <strong class="product-price">Rp179.000</strong>
-          <button class="add-cart" type="button"
-            data-id="komputer-2"
-            data-name="Wireless Mouse"
-            data-price="179000"
-            data-icon="🖱️">+ Keranjang</button>
-        </article>
 
-      </div>
-    </section>
+                <button
+                    class="category-card"
+                    data-category-card="hp"
+                    type="button"
+                >
 
-    <!-- QUICK ACCESS -->
-    <section class="quick-access">
-      <div class="section-heading centered">
-        <div>
-          <h2>Akses Cepat</h2>
-          <p>Menu menuju pekerjaan anggota kelompok.</p>
-        </div>
-      </div>
+                    <span class="category-icon">
+                        📱
+                    </span>
 
-      <div class="quick-grid">
-        <a href="search.html" class="quick-card"><span>⌕</span><strong>Search</strong><small>Jonathan</small></a>
-        <a href="chat.html" class="quick-card"><span>💬</span><strong>Chat</strong><small>Jonathan</small></a>
-        <a href="faq.html" class="quick-card"><span>?</span><strong>FAQ</strong><small>Charlie</small></a>
-        <a href="notif.html" class="quick-card"><span>🔔</span><strong>Notifikasi</strong><small>Charlie</small></a>
-      </div>
-    </section>
+                    <strong>
+                        Handphone
+                    </strong>
 
-  </main>
+                    <span>
+                        Smartphone
+                    </span>
 
-  <script src="script.js"></script>
-  <script src="cart.js"></script>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category-card="elektronik"
+                    type="button"
+                >
+
+                    <span class="category-icon">
+                        🎧
+                    </span>
+
+                    <strong>
+                        Elektronik
+                    </strong>
+
+                    <span>
+                        Gadget
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category-card="hewan"
+                    type="button"
+                >
+
+                    <span class="category-icon">
+                        🐾
+                    </span>
+
+                    <strong>
+                        Perawatan Hewan
+                    </strong>
+
+                    <span>
+                        Kebutuhan Hewan
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category-card="keuangan"
+                    type="button"
+                >
+
+                    <span class="category-icon">
+                        💰
+                    </span>
+
+                    <strong>
+                        Keuangan
+                    </strong>
+
+                    <span>
+                        Finance
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category-card="komputer"
+                    type="button"
+                >
+
+                    <span class="category-icon">
+                        💻
+                    </span>
+
+                    <strong>
+                        Komputer
+                    </strong>
+
+                    <span>
+                        Laptop & PC
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="category-detail-wrapper">
+
+                <button
+                    class="category-detail active"
+                    data-category="all"
+                    type="button"
+                >
+                    Semua
+                </button>
+
+                <button
+                    class="category-detail"
+                    data-category="hp"
+                    type="button"
+                >
+                    Handphone
+                </button>
+
+                <button
+                    class="category-detail"
+                    data-category="elektronik"
+                    type="button"
+                >
+                    Elektronik
+                </button>
+
+                <button
+                    class="category-detail"
+                    data-category="hewan"
+                    type="button"
+                >
+                    Perawatan Hewan
+                </button>
+
+                <button
+                    class="category-detail"
+                    data-category="keuangan"
+                    type="button"
+                >
+                    Keuangan
+                </button>
+
+                <button
+                    class="category-detail"
+                    data-category="komputer"
+                    type="button"
+                >
+                    Komputer
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        DIGITAL SERVICE
+                    </span>
+
+                    <h2>
+                        Top Up & Tagihan
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-tabs">
+
+                <button
+                    class="service-tab active"
+                    type="button"
+                >
+                    Top Up
+                </button>
+
+                <button
+                    class="service-tab"
+                    type="button"
+                >
+                    Tagihan
+                </button>
+
+            </div>
+
+
+            <div class="service-grid">
+
+                <div class="service-card">
+
+                    <span>
+                        📱
+                    </span>
+
+                    <strong>
+                        Pulsa
+                    </strong>
+
+                    <small>
+                        Semua Operator
+                    </small>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <span>
+                        🌐
+                    </span>
+
+                    <strong>
+                        Data Internet
+                    </strong>
+
+                    <small>
+                        Paket Internet
+                    </small>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <span>
+                        ⚡
+                    </span>
+
+                    <strong>
+                        Token Listrik
+                    </strong>
+
+                    <small>
+                        Prabayar
+                    </small>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <span>
+                        🎮
+                    </span>
+
+                    <strong>
+                        Voucher Game
+                    </strong>
+
+                    <small>
+                        Game Favorit
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            class="section"
+            id="produk"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        PRODUCTS
+                    </span>
+
+                    <h2>
+                        Produk Pilihan
+                    </h2>
+
+                    <p>
+                        Pilih produk yang kamu butuhkan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-grid">
+
+                <div
+                    class="product-card"
+                    data-category="hp"
+                    data-name="iPhone 15"
+                >
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <div class="product-category">
+                        Handphone
+                    </div>
+
+                    <h3>
+                        iPhone 15
+                    </h3>
+
+                    <p class="product-description">
+                        Smartphone premium untuk kebutuhan sehari-hari.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp12.999.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="1"
+                            data-name="iPhone 15"
+                            data-price="12999000"
+                            data-icon="📱"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="hp"
+                    data-name="Samsung Galaxy S24"
+                >
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <div class="product-category">
+                        Handphone
+                    </div>
+
+                    <h3>
+                        Samsung Galaxy S24
+                    </h3>
+
+                    <p class="product-description">
+                        Performa cepat dengan desain modern.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp13.499.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="2"
+                            data-name="Samsung Galaxy S24"
+                            data-price="13499000"
+                            data-icon="📱"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="elektronik"
+                    data-name="Sony WH-1000XM5"
+                >
+
+                    <div class="product-image">
+                        🎧
+                    </div>
+
+                    <div class="product-category">
+                        Elektronik
+                    </div>
+
+                    <h3>
+                        Sony WH-1000XM5
+                    </h3>
+
+                    <p class="product-description">
+                        Headphone dengan noise cancelling.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp5.299.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="3"
+                            data-name="Sony WH-1000XM5"
+                            data-price="5299000"
+                            data-icon="🎧"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="elektronik"
+                    data-name="JBL Flip 6"
+                >
+
+                    <div class="product-image">
+                        🔊
+                    </div>
+
+                    <div class="product-category">
+                        Elektronik
+                    </div>
+
+                    <h3>
+                        JBL Flip 6
+                    </h3>
+
+                    <p class="product-description">
+                        Speaker portable dengan suara kuat.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp1.899.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="4"
+                            data-name="JBL Flip 6"
+                            data-price="1899000"
+                            data-icon="🔊"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="hewan"
+                    data-name="Royal Canin Dog Food"
+                >
+
+                    <div class="product-image">
+                        🐶
+                    </div>
+
+                    <div class="product-category">
+                        Perawatan Hewan
+                    </div>
+
+                    <h3>
+                        Royal Canin Dog Food
+                    </h3>
+
+                    <p class="product-description">
+                        Makanan anjing untuk nutrisi harian.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp450.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="5"
+                            data-name="Royal Canin Dog Food"
+                            data-price="450000"
+                            data-icon="🐶"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="hewan"
+                    data-name="Cat Grooming Set"
+                >
+
+                    <div class="product-image">
+                        🐱
+                    </div>
+
+                    <div class="product-category">
+                        Perawatan Hewan
+                    </div>
+
+                    <h3>
+                        Cat Grooming Set
+                    </h3>
+
+                    <p class="product-description">
+                        Peralatan grooming untuk kucing.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp175.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="6"
+                            data-name="Cat Grooming Set"
+                            data-price="175000"
+                            data-icon="🐱"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="keuangan"
+                    data-name="Saldo E-Wallet"
+                >
+
+                    <div class="product-image">
+                        💳
+                    </div>
+
+                    <div class="product-category">
+                        Keuangan
+                    </div>
+
+                    <h3>
+                        Saldo E-Wallet
+                    </h3>
+
+                    <p class="product-description">
+                        Isi saldo e-wallet dengan cepat.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp100.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="7"
+                            data-name="Saldo E-Wallet"
+                            data-price="100000"
+                            data-icon="💳"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="keuangan"
+                    data-name="Voucher Dana"
+                >
+
+                    <div class="product-image">
+                        💰
+                    </div>
+
+                    <div class="product-category">
+                        Keuangan
+                    </div>
+
+                    <h3>
+                        Voucher Dana
+                    </h3>
+
+                    <p class="product-description">
+                        Voucher digital untuk kebutuhan transaksi.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp200.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="8"
+                            data-name="Voucher Dana"
+                            data-price="200000"
+                            data-icon="💰"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="komputer"
+                    data-name="Mechanical Keyboard"
+                >
+
+                    <div class="product-image">
+                        ⌨️
+                    </div>
+
+                    <div class="product-category">
+                        Komputer
+                    </div>
+
+                    <h3>
+                        Mechanical Keyboard
+                    </h3>
+
+                    <p class="product-description">
+                        Keyboard mechanical untuk gaming dan kerja.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp799.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="9"
+                            data-name="Mechanical Keyboard"
+                            data-price="799000"
+                            data-icon="⌨️"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="product-card"
+                    data-category="komputer"
+                    data-name="Gaming Mouse"
+                >
+
+                    <div class="product-image">
+                        🖱️
+                    </div>
+
+                    <div class="product-category">
+                        Komputer
+                    </div>
+
+                    <h3>
+                        Gaming Mouse
+                    </h3>
+
+                    <p class="product-description">
+                        Mouse gaming dengan sensor responsif.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            Rp499.000
+                        </strong>
+
+                        <button
+                            class="add-cart"
+                            type="button"
+                            data-id="10"
+                            data-name="Gaming Mouse"
+                            data-price="499000"
+                            data-icon="🖱️"
+                        >
+                            + Keranjang
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        QUICK ACCESS
+                    </span>
+
+                    <h2>
+                        Akses Cepat
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+                <a
+                    href="search.html"
+                    class="quick-card"
+                >
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <strong>
+                        Search
+                    </strong>
+
+                    <small>
+                        Cari sesuatu
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="chat.html"
+                    class="quick-card"
+                >
+
+                    <span>
+                        💬
+                    </span>
+
+                    <strong>
+                        Chat
+                    </strong>
+
+                    <small>
+                        Hubungi penjual
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="faq.html"
+                    class="quick-card"
+                >
+
+                    <span>
+                        ❓
+                    </span>
+
+                    <strong>
+                        FAQ
+                    </strong>
+
+                    <small>
+                        Bantuan pelanggan
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="notif.html"
+                    class="quick-card"
+                >
+
+                    <span>
+                        🔔
+                    </span>
+
+                    <strong>
+                        Notifikasi
+                    </strong>
+
+                    <small>
+                        Lihat semua pesan
+                    </small>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <footer id="kontak">
+
+            <div class="footer-main">
+
+                <div>
+
+                    <h3>
+                        GEBOY SHOP
+                    </h3>
+
+                    <p>
+                        E-Commerce sederhana untuk project
+                        Front End Programming.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Kontak
+                    </h4>
+
+                    <p>
+                        Email: geboyshop@gmail.com
+                    </p>
+
+                    <p>
+                        WhatsApp: 0812-3456-7890
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                © 2026 GEBOY SHOP
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+
 </body>
+
 </html>
