@@ -281,7 +281,7 @@ header {
 }
 
 .hero {
-  background:linear-gradient(160deg,#5b5b7c 0%,#232440 60%,#14152a 100%);
+  background:linear-gradient(135deg,#5ABC81 0%,#8fdcb0 100%);
   color:#fff;
   border-radius:20px;
   margin:18px 20px 0;
@@ -733,7 +733,9 @@ footer div:last-child {
   }
 }
 
-.logo,
-.hero h1 {
+/* FONT BAUMANS */
+h1,
+h2,
+.logo {
   font-family:Baumans,cursive;
 }
