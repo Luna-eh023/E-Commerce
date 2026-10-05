@@ -269,7 +269,7 @@ h1 {
   font-weight: 700;
 }
 
-.remove-btn {
+.halaman-cart .remove-btn {
   border: 0;
   background: transparent;
   color: #8f9992;
@@ -325,13 +325,14 @@ h1 {
   font-weight: 800;
 }
 
+.halaman-cart .summary-card {
 .summary-card {
   padding: 20px;
   position: sticky;
   top: 78px;
 }
 
-.summary-row {
+.halaman-cart .summary-row {
   display: flex;
   justify-content: space-between;
   gap: 14px;
@@ -340,11 +341,11 @@ h1 {
   font-size: 13px;
 }
 
-.summary-row strong {
+.halaman-cart .summary-row strong {
   color: var(--text);
 }
 
-.summary-line {
+.halaman-cart .summary-line {
   border-top: 1px solid var(--border);
   margin: 20px 0;
 }

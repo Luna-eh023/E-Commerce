@@ -1,0 +1,710 @@
+/* ===== NOTIF di Dashboard (popup / ikon) ===== */
+
+/* NOTIFICATION BELL */
+
+.notification-bell {
+
+    position:
+        relative;
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,.1);
+
+    color:
+        white;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    cursor:
+        pointer;
+
+    transform-origin:
+        50% 10%;
+}
+
+.notification-bell svg {
+
+    width:
+        23px;
+
+    height:
+        23px;
+}
+
+#notificationBell.ring {
+
+    animation:
+        ring .6s ease;
+}
+
+@keyframes ring {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(0);
+
+    }
+
+
+    20% {
+
+        transform:
+            rotate(18deg);
+
+    }
+
+
+    40% {
+
+        transform:
+            rotate(-16deg);
+
+    }
+
+
+    60% {
+
+        transform:
+            rotate(10deg);
+
+    }
+
+
+    80% {
+
+        transform:
+            rotate(-6deg);
+
+    }
+}
+
+/* NOTIFICATION BADGE */
+
+.notification-badge {
+
+    position:
+        absolute;
+
+    top:
+        -4px;
+
+    right:
+        -3px;
+
+    min-width:
+        18px;
+
+    height:
+        18px;
+
+    padding:
+        0 4px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        999px;
+
+    background:
+        #ff5b5b;
+
+    color:
+        white;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    border:
+        2px solid
+        #232440;
+}
+
+/* NOTIFICATION POPUP */
+
+.notification-popup {
+
+    position:
+        fixed;
+
+    top:
+        74px;
+
+    right:
+        5%;
+
+    z-index:
+        999;
+
+    width:
+        min(
+            430px,
+            calc(100vw - 30px)
+        );
+
+    padding:
+        14px;
+
+    border-radius:
+        22px;
+
+    background:
+        rgba(255,255,255,.97);
+
+    border:
+        1px solid
+        rgba(90,188,129,.2);
+
+    box-shadow:
+        0 20px 50px
+        var(--shadow);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transform:
+        scale(.6)
+        translateY(-10px);
+
+    transform-origin:
+        top right;
+
+    pointer-events:
+        none;
+
+    transition:
+
+        transform .35s
+        cubic-bezier(
+            .2,
+            .9,
+            .3,
+            1.2
+        ),
+
+        opacity .25s,
+
+        visibility .25s;
+}
+
+.notification-popup.show {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        scale(1)
+        translateY(0);
+
+    pointer-events:
+        auto;
+}
+
+.notification-popup-header {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+    padding-bottom:
+        10px;
+}
+
+.notification-popup-header h3 {
+
+    margin:
+        0;
+
+    font-size:
+        20px;
+}
+
+.notification-popup-header span {
+
+    display:
+        block;
+
+    margin-top:
+        2px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+}
+
+.notification-close {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    border:
+        0;
+
+    border-radius:
+        50%;
+
+    background: rgba(0,0,0,.06);
+    color: #111;
+
+    font-size:
+        22px;
+
+    cursor:
+        pointer;
+
+    line-height:
+        1;
+}
+
+.notification-close:hover {
+
+    background:
+        rgba(0,0,0,.1);
+}
+
+.notification-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+}
+
+.notification-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        10px 0;
+
+    border-top:
+        1px solid var(--line);
+
+    animation:
+        notificationIn .4s both;
+}
+
+.notification-item:first-child {
+
+    border-top:
+        0;
+}
+
+@keyframes notificationIn {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(8px);
+
+    }
+
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+}
+
+.notification-avatar {
+
+    flex:
+        none;
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border-radius:
+        50%;
+
+    background:
+        #eef3ef;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    font-size:
+        19px;
+}
+
+.notification-text {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+}
+
+.notification-title {
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.2;
+}
+
+.notification-description {
+
+    margin-top:
+        3px;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.35;
+
+    color:
+        var(--muted);
+}
+
+.notification-emoji {
+
+    display:
+        flex;
+
+    gap:
+        9px;
+}
+
+.notification-emoji button {
+
+    background:
+        none;
+
+    border:
+        0;
+
+    padding:
+        0;
+
+    font-size:
+        20px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .15s;
+}
+
+.notification-emoji button:hover {
+
+    transform:
+        scale(1.35);
+}
+
+.notification-emoji button.active {
+
+    animation:
+        emojiPop .35s ease;
+
+    transform:
+        scale(1.25);
+}
+
+@keyframes emojiPop {
+
+    50% {
+
+        transform:
+            scale(1.7);
+
+    }
+}
+
+@media (max-width: 800px) {
+.notification-popup {
+        
+                top:
+                    135px;
+        
+                right:
+                    15px;
+    }
+}
+
+/* ===== Halaman notif.html (dibatasi dengan class body .halaman-notif) ===== */
+
+.halaman-notif {
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#fff;
+  --fg:#000;
+  --muted:#7a7a7a;
+  --line:#e6e6e6;
+  --chip:#f1f1f1;
+  --shadow:rgba(0,0,0,.18);
+}
+
+.halaman-notif, .halaman-notif * {
+  box-sizing:border-box;
+}
+
+.halaman-notif, .halaman-notif {
+  height:100%;
+  margin:0;
+}
+
+.halaman-notif {
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Roboto,system-ui,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:24px;
+}
+
+.halaman-notif .wrap {
+  position:relative;
+  width:min(470px,94vw);
+}
+
+.halaman-notif .bell {
+  position:absolute;
+  top:8px;
+  right:-34px;
+  width:28px;
+  height:28px;
+  background:none;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  color:var(--fg);
+  z-index:3;
+  transform-origin:50% 10%;
+}
+
+.halaman-notif .bell svg {
+  width:26px;
+  height:26px;
+}
+
+.halaman-notif .bell .badge {
+  position:absolute;
+  top:-6px;
+  right:-4px;
+  font-size:12px;
+  line-height:1;
+}
+
+.halaman-notif .bell:hover, .halaman-notif .bell.ring {
+  animation:ringHalaman .6s ease;
+}
+
+@keyframes ringHalaman {
+  0%,100% {
+    transform:rotate(0);
+  }
+  20% {
+    transform:rotate(18deg);
+  }
+  40% {
+    transform:rotate(-16deg);
+  }
+  60% {
+    transform:rotate(10deg);
+  }
+  80% {
+    transform:rotate(-6deg);
+  }
+}
+
+.halaman-notif .card {
+  background:var(--bg);
+  border-radius:28px;
+  padding:10px 12px 8px;
+  box-shadow:0 12px 40px var(--shadow);
+  transform-origin:100% 0;
+  transition:transform .35s cubic-bezier(.2,.9,.3,1.2),opacity .25s;
+}
+
+.halaman-notif .card.hide {
+  transform:scale(.6) translateY(-10px);
+  opacity:0;
+  pointer-events:none;
+}
+
+.halaman-notif h1 {
+  font-size:20px;
+  font-weight:500;
+  margin:0;
+  line-height:1.1;
+}
+
+.halaman-notif .creator {
+  font-size:14px;
+  color:var(--muted);
+  margin:3px 0 12px;
+}
+
+.halaman-notif .item {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 0;
+  border-top:1px solid var(--line);
+}
+
+.halaman-notif .item:first-of-type {
+  border-top:0;
+}
+
+.halaman-notif .ava {
+  flex:none;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--chip);
+  display:grid;
+  place-items:center;
+  font-size:19px;
+}
+
+.halaman-notif .txt {
+  flex:1;
+  min-width:0;
+}
+
+.halaman-notif .t {
+  font-size:16px;
+  line-height:1.2;
+}
+
+.halaman-notif .d {
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.3;
+  margin-top:2px;
+}
+
+.halaman-notif .emo {
+  display:flex;
+  gap:12px;
+  padding-right:2px;
+}
+
+.halaman-notif .emo button {
+  background:none;
+  border:0;
+  padding:0;
+  font-size:20px;
+  cursor:pointer;
+  transition:transform .15s;
+  filter:grayscale(.0);
+}
+
+.halaman-notif .emo button:hover {
+  transform:scale(1.35);
+}
+
+.halaman-notif .emo button.on {
+  animation:pop .35s ease;
+  transform:scale(1.25);
+}
+
+@keyframes pop {
+  50% {
+    transform:scale(1.7);
+  }
+}
+
+.halaman-notif .item {
+  animation:in .4s both;
+}
+
+.halaman-notif .card.hide .item {
+  animation:none;
+}
+
+@keyframes in {
+  from {
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to {
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* FONT BAUMANS */
+
+.halaman-notif h1 {
+  font-family:Baumans,cursive;
+}

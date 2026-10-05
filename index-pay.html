@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payment</title>
+
+    <link
+        href="shop.css"
+        rel="stylesheet"
+        type="text/css"
+    />
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="page-pay">
+
+
+<nav class="navbar">
+
+    <a
+        class="brand"
+        href="index.html"
+    >
+        Digeboy Store
+    </a>
+
+
+    <button
+        class="toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="menu"
+    >
+
+        <svg viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+
+    </button>
+
+
+    <div
+        class="menu"
+        id="menu"
+    >
+
+        <ul class="links">
+
+            <li>
+                <a href="index-store.html">
+                    Store Front
+                </a>
+            </li>
+
+
+            <li>
+                <a href="index-product.html">
+                    Products
+                </a>
+            </li>
+
+
+            <li>
+                <a
+                    href="cart.html"
+                    class="active"
+                    data-nav="cart"
+                >
+                    Cart
+                </a>
+            </li>
+
+        </ul>
+
+
+        <form
+            class="nav-search"
+            role="search"
+        >
+
+            <input
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+            >
+
+            <button
+                type="submit"
+            >
+                Search
+            </button>
+
+        </form>
+
+
+        <div class="nav-user">
+
+            <div class="avatar"></div>
+
+            <div>
+
+                <div class="user-name">
+                    mapumi
+                </div>
+
+                <div class="user-role">
+                    Verified Collector
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<nav
+    aria-label="breadcrumb"
+    id="breadcrumb"
+>
+
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item">
+
+            <a href="index.html">
+                Home
+            </a>
+
+        </li>
+
+
+        <li class="breadcrumb-item">
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </li>
+
+
+        <li
+            class="breadcrumb-item active"
+            aria-current="page"
+        >
+            Payment
+        </li>
+
+    </ol>
+
+</nav>
+
+
+
+<div class="container">
+
+    <div class="payment-information">
+
+
+        <div id="payment-form">
+
+            <h2>
+                Payment Information
+            </h2>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="cardHolderName"
+                    class="form-label"
+                >
+                    Card Holder Name
+                </label>
+
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="cardHolderName"
+                    placeholder="John Doe"
+                    autocomplete="cc-name"
+                >
+
+            </div>
+
+
+
+            <div class="mb-3">
+
+                <label
+                    for="cardNumber"
+                    class="form-label"
+                >
+                    Card Number
+                </label>
+
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="cardNumber"
+                    placeholder="1234 5678 9012 3456"
+                    inputmode="numeric"
+                    autocomplete="cc-number"
+                    maxlength="19"
+                >
+
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="mb-3">
+
+                        <label
+                            for="expiryDate"
+                            class="form-label"
+                        >
+                            Expiry Date
+                        </label>
+
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="expiryDate"
+                            placeholder="MM/YY"
+                            inputmode="numeric"
+                            autocomplete="cc-exp"
+                            maxlength="5"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="mb-3">
+
+                        <label
+                            for="cvv"
+                            class="form-label"
+                        >
+                            CVV
+                        </label>
+
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="cvv"
+                            placeholder="123"
+                            inputmode="numeric"
+                            autocomplete="cc-csc"
+                            maxlength="4"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="items">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div id="orderItems">
+            </div>
+
+
+            <hr>
+
+
+            <div>
+
+                <ul id="totals">
+
+                    <li>
+                        Subtotal:
+                        <span id="subtotal">
+                            Rp0
+                        </span>
+                    </li>
+
+
+                    <li
+                        id="discountRow"
+                        hidden
+                    >
+                        Discount:
+                        <span id="discount">
+                        </span>
+                    </li>
+
+
+                    <li>
+                        Shipping:
+                        <span id="shipping">
+                            FREE
+                        </span>
+                    </li>
+
+
+                    <li>
+                        Tax:
+                        <span id="tax">
+                            Rp0
+                        </span>
+                    </li>
+
+
+                    <li>
+                        Total:
+                        <strong id="total">
+                            Rp0
+                        </strong>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <hr>
+
+
+            <div
+                class="Buttons"
+                id="confirm"
+            >
+
+                <button
+                    type="button"
+                    class="btn"
+                    id="confirmBtn"
+                >
+                    Confirm Payment
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn"
+                    id="returnBtn"
+                >
+                    Return to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer class="site-footer">
+    Designed by Gerard the cooler guy
+</footer>
+
+
+<script src="shop.js"></script>
+
+</body>
+
+</html>

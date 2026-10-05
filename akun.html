@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geboy - Akun Saya</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="akun.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo-area">
+
+        <img src="images/logo-geboy.jpeg"
+             alt="Logo Geboy"
+             class="logo">
+
+        <span class="logo-text">
+            Geboy
+        </span>
+
+    </div>
+
+    <nav class="nav-menu">
+
+        <button id="profilButton"
+                onclick="showPage('profil')">
+            Profil Akun
+        </button>
+
+        <button onclick="showPage('voucher')">
+            Voucher
+        </button>
+
+        <button onclick="showPage('coin')">
+            Bonus Coin
+        </button>
+
+    </nav>
+
+    <div class="nav-right">
+
+        <button class="navbar-coin"
+                onclick="showPage('coin')">
+
+            <img src="images/coin.png"
+                 alt="Coin Geboy"
+                 class="navbar-coin-image">
+
+            <span id="navbarCoin">
+                160
+            </span>
+
+            <span class="coin-label">
+                Coin
+            </span>
+
+        </button>
+
+        <span class="username"
+              id="navbarUsername">
+            Bunga
+        </span>
+
+    </div>
+
+</header>
+
+
+<div id="profileMenu"
+     class="profile-menu">
+
+    <button onclick="openProfileChild('profil')">
+        Profil
+    </button>
+
+    <button onclick="openProfileChild('bank')">
+        Bank & Kartu
+    </button>
+
+    <button onclick="openProfileChild('alamat')">
+        Alamat
+    </button>
+
+    <button onclick="openProfileChild('password')">
+        Ubah Password
+    </button>
+
+    <button onclick="openProfileChild('notifikasi')">
+        Pengaturan Notifikasi
+    </button>
+
+    <button onclick="openProfileChild('privasi')">
+        Pengaturan Privasi
+    </button>
+
+</div>
+
+
+<main class="container">
+
+
+    <section id="profilePage"
+             class="page">
+
+        <h1 id="pageTitle">
+            Profil
+        </h1>
+
+        <div class="profile-box">
+
+            <div class="profile-photo-area">
+
+                <img id="profileImage"
+                     src="images/logo-geboy.jpeg"
+                     class="profile-image"
+                     alt="Foto Profil">
+
+                <label for="photoInput"
+                       class="photo-button">
+                    Pilih Gambar
+                </label>
+
+                <input type="file"
+                       id="photoInput"
+                       accept="image/*"
+                       onchange="ubahFoto(event)">
+
+                <p>
+                    Format JPG / PNG
+                </p>
+
+            </div>
+
+
+            <div class="profile-form">
+
+                <div class="form-row">
+
+                    <label>
+                        Username
+                    </label>
+
+                    <input type="text"
+                           id="username"
+                           placeholder="Masukkan username">
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Nama
+                    </label>
+
+                    <input type="text"
+                           id="nama"
+                           placeholder="Masukkan nama">
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input type="email"
+                           id="email"
+                           placeholder="Masukkan email">
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Nomor Telepon
+                    </label>
+
+                    <input type="text"
+                           id="telepon"
+                           placeholder="Masukkan nomor telepon">
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Nama Toko
+                    </label>
+
+                    <input type="text"
+                           id="namaToko"
+                           placeholder="Masukkan nama toko">
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Jenis Kelamin
+                    </label>
+
+                    <div class="radio-area">
+
+                        <label>
+                            <input type="radio"
+                                   name="gender"
+                                   value="Laki-laki">
+                            Laki-laki
+                        </label>
+
+                        <label>
+                            <input type="radio"
+                                   name="gender"
+                                   value="Perempuan">
+                            Perempuan
+                        </label>
+
+                        <label>
+                            <input type="radio"
+                                   name="gender"
+                                   value="Lainnya">
+                            Lainnya
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Tanggal Lahir
+                    </label>
+
+                    <input type="date"
+                           id="tanggalLahir">
+
+                </div>
+
+
+                <button class="save-button"
+                        onclick="simpanProfil()">
+                    Simpan
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="bankPage"
+             class="page hidden">
+
+        <h1>
+            Bank & Kartu
+        </h1>
+
+        <div class="simple-box">
+
+            <h3>
+                Kartu Kredit / Debit
+            </h3>
+
+            <div id="cardList"></div>
+
+            <button class="green-button"
+                    onclick="tambahKartu()">
+                + Tambahkan Kartu Baru
+            </button>
+
+        </div>
+
+
+        <div class="simple-box">
+
+            <h3>
+                BCA OneKlik
+            </h3>
+
+            <div id="oneKlikList"></div>
+
+            <button class="green-button"
+                    onclick="tambahOneKlik()">
+                + Tambah BCA OneKlik
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section id="alamatPage"
+             class="page hidden">
+
+        <h1>
+            Alamat Saya
+        </h1>
+
+        <button class="green-button"
+                onclick="tambahAlamat()">
+            + Tambahkan Alamat
+        </button>
+
+        <div id="addressList"
+             class="address-list">
+        </div>
+
+    </section>
+
+
+    <section id="passwordPage"
+             class="page hidden">
+
+        <h1>
+            Ubah Password
+        </h1>
+
+        <div class="simple-box password-box">
+
+            <div class="form-row">
+
+                <label>
+                    Password Lama
+                </label>
+
+                <input type="password"
+                       id="oldPassword">
+
+            </div>
+
+
+            <div class="form-row">
+
+                <label>
+                    Password Baru
+                </label>
+
+                <input type="password"
+                       id="newPassword">
+
+            </div>
+
+
+            <div class="form-row">
+
+                <label>
+                    Konfirmasi Password
+                </label>
+
+                <input type="password"
+                       id="confirmPassword">
+
+            </div>
+
+
+            <button class="save-button"
+                    onclick="ubahPassword()">
+                Simpan
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section id="notificationPage"
+             class="page hidden">
+
+        <h1>
+            Pengaturan Notifikasi
+        </h1>
+
+        <div class="setting-box">
+
+            <div class="setting-row">
+
+                <div class="setting-text">
+
+                    <b>
+                        Status Pesanan
+                    </b>
+
+                    <p id="notifPesananText">
+                        Informasi terbaru dari status pesanan.
+                    </p>
+
+                </div>
+
+                <div class="setting-right">
+
+                    <span id="notifPesananStatus"
+                          class="setting-status">
+                        Aktif
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               id="notifPesanan"
+                               onchange="simpanNotifikasi('pesanan')">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-text">
+
+                    <b>
+                        Promosi
+                    </b>
+
+                    <p id="notifPromosiText">
+                        Informasi promosi dan penawaran.
+                    </p>
+
+                </div>
+
+                <div class="setting-right">
+
+                    <span id="notifPromosiStatus"
+                          class="setting-status">
+                        Aktif
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               id="notifPromosi"
+                               onchange="simpanNotifikasi('promosi')">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-text">
+
+                    <b>
+                        Survei Pembeli
+                    </b>
+
+                    <p id="notifSurveiText">
+                        Informasi mengenai survei.
+                    </p>
+
+                </div>
+
+                <div class="setting-right">
+
+                    <span id="notifSurveiStatus"
+                          class="setting-status">
+                        Nonaktif
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               id="notifSurvei"
+                               onchange="simpanNotifikasi('survei')">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-text">
+
+                    <b>
+                        Notifikasi SMS
+                    </b>
+
+                    <p id="notifSMSText">
+                        Notifikasi penting melalui SMS.
+                    </p>
+
+                </div>
+
+                <div class="setting-right">
+
+                    <span id="notifSMSStatus"
+                          class="setting-status">
+                        Aktif
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               id="notifSMS"
+                               onchange="simpanNotifikasi('sms')">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="notificationResult"
+             class="setting-result">
+
+            <b>
+                Ringkasan Notifikasi
+            </b>
+
+            <p>
+                Pengaturan notifikasi akan ditampilkan di sini.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section id="privacyPage"
+             class="page hidden">
+
+        <h1>
+            Pengaturan Privasi
+        </h1>
+
+        <div class="setting-box">
+
+            <div class="setting-row">
+
+                <div class="setting-text">
+
+                    <b>
+                        Profil Publik
+                    </b>
+
+                    <p id="privacyProfileText">
+                        Izinkan informasi profil ditampilkan kepada pengguna lain.
+                    </p>
+
+                </div>
+
+                <div class="setting-right">
+
+                    <span id="privacyProfileStatus"
+                          class="setting-status">
+                        Aktif
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               id="privacyProfile"
+                               onchange="simpanPrivasi('profile')">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-text">
+
+                    <b>
+                        Aktivitas Akun
+                    </b>
+
+                    <p id="privacyActivityText">
+                        Izinkan aktivitas akun ditampilkan.
+                    </p>
+
+                </div>
+
+                <div class="setting-right">
+
+                    <span id="privacyActivityStatus"
+                          class="setting-status">
+                        Aktif
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               id="privacyActivity"
+                               onchange="simpanPrivasi('activity')">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-text">
+
+                    <b>
+                        Personalisasi
+                    </b>
+
+                    <p id="privacyPersonalText">
+                        Gunakan aktivitas untuk memberikan rekomendasi yang sesuai.
+                    </p>
+
+                </div>
+
+                <div class="setting-right">
+
+                    <span id="privacyPersonalStatus"
+                          class="setting-status">
+                        Aktif
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox"
+                               id="privacyPersonal"
+                               onchange="simpanPrivasi('personal')">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="privacyResult"
+             class="privacy-result">
+
+            <div>
+
+                <b>
+                    Tampilan Privasi
+                </b>
+
+                <p>
+                    Pengaturan privasi kamu akan memengaruhi informasi yang ditampilkan.
+                </p>
+
+            </div>
+
+            <div id="privacyPreview"
+                 class="privacy-preview">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="voucherPage"
+             class="page hidden">
+
+        <h1>
+            Voucher Saya
+        </h1>
+
+
+        <section class="add-voucher">
+
+            <strong>
+                Tambah Voucher
+            </strong>
+
+            <input type="text"
+                   id="voucherCode"
+                   placeholder="Masukkan kode voucher">
+
+            <button onclick="simpanVoucher()">
+                Simpan
+            </button>
+
+        </section>
+
+
+        <div id="savedVoucherList"
+             class="saved-voucher-list">
+        </div>
+
+
+        <div class="category-bar">
+
+            <button class="category active"
+                    onclick="showCategory('semua', this)">
+                Semua
+            </button>
+
+            <button class="category"
+                    onclick="showCategory('geboy', this)">
+                Geboy
+            </button>
+
+            <button class="category"
+                    onclick="showCategory('vip', this)">
+                GeboyVIP
+            </button>
+
+            <button class="category"
+                    onclick="showCategory('toko', this)">
+                Toko
+            </button>
+
+            <button class="category"
+                    onclick="showCategory('food', this)">
+                GeboyFood
+            </button>
+
+
+            <div class="more-container">
+
+                <button class="category more-button"
+                        onclick="toggleMore()">
+                    More ▾
+                </button>
+
+                <div class="more-menu"
+                     id="moreMenu">
+
+                    <button onclick="showCategory('geboypay', null)">
+                        Voucher GeboyPay
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <section id="voucherList"
+                 class="voucher-list">
+        </section>
+
+    </section>
+
+
+    <section id="coinPage"
+             class="page hidden">
+
+        <h1>
+            Bonus Coin
+        </h1>
+
+
+        <div class="coin-header">
+
+            <div class="coin-header-left">
+
+                <img src="images/coin.png"
+                     alt="Coin Geboy"
+                     class="main-coin-image">
+
+                <div>
+
+                    <span class="coin-small-title">
+                        Coin Geboy
+                    </span>
+
+                    <div class="coin-balance">
+
+                        <span id="coinBalance">
+                            160
+                        </span>
+
+                        <span>
+                            Coin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="get-coin-button"
+                    onclick="scrollToReward">
+
+                Dapatkan Coin
+
+                <span>
+                    ›
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div class="coin-info">
+
+            <div>
+
+                <strong>
+                    Coin tersedia
+                </strong>
+
+                <span id="coinAvailable">
+                    160 Coin
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Coin akan berakhir
+                </strong>
+
+                <span>
+                    31-12-2026
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="coin-tabs">
+
+            <button class="coin-tab active"
+                    onclick="showCoinTab('reward', this)">
+                Dapatkan
+            </button>
+
+            <button class="coin-tab"
+                    onclick="showCoinTab('history', this)">
+                Riwayat Coin
+            </button>
+
+        </div>
+
+
+        <div id="rewardCoinSection"
+             class="coin-tab-content">
+
+            <div class="reward-title">
+
+                <div>
+
+                    <h2>
+                        Bonus Coin Harian
+                    </h2>
+
+                    <p>
+                        Klaim coin setiap hari untuk mendapatkan bonus tambahan.
+                    </p>
+
+                </div>
+
+                <span id="streakText">
+                    Hari 1
+                </span>
+
+            </div>
+
+
+            <div class="reward-days"
+                 id="rewardDays">
+            </div>
+
+
+            <div class="claim-area">
+
+                <div id="claimMessage"
+                     class="claim-message">
+                    Klaim coin hari ini untuk mendapatkan bonus.
+                </div>
+
+                <button id="claimCoinButton"
+                        class="claim-coin-button"
+                        onclick="claimDailyCoin()">
+                    Klaim Coin Hari Ini
+                </button>
+
+            </div>
+
+
+            <div class="extra-coin-box">
+
+                <div class="extra-coin-icon">
+                    G
+                </div>
+
+                <div>
+
+                    <strong>
+                        Bonus Coin Tambahan
+                    </strong>
+
+                    <p>
+                        Selesaikan aktivitas sederhana untuk mendapatkan coin.
+                    </p>
+
+                </div>
+
+                <button onclick="claimExtraCoin()">
+                    +10 Coin
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="historyCoinSection"
+             class="coin-tab-content hidden">
+
+            <div class="history-header">
+
+                <h2>
+                    Riwayat Coin
+                </h2>
+
+                <span id="historyTotal">
+                    Saldo 160 Coin
+                </span>
+
+            </div>
+
+
+            <div id="coinHistory"
+                 class="coin-history">
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="akun.js"></script>
+
+</body>
+</html>

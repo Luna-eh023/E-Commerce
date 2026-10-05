@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Geboy - Voucher</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baumans&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="voucher.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo-area">
+
+        <a
+            href="index.html"
+            class="logo-text"
+        >
+            Geboy
+        </a>
+
+    </div>
+
+
+    <nav class="nav-menu">
+
+        <a href="akun.html">
+            Profil Akun
+        </a>
+
+        <a
+            href="voucher.html"
+            class="active"
+        >
+            Voucher
+        </a>
+
+        <a href="bonus.html">
+            Bonus Coin
+        </a>
+
+    </nav>
+
+
+    <div class="nav-right">
+
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Dashboard
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+    <h1>
+        Voucher Saya
+    </h1>
+
+
+    <section class="add-voucher">
+
+        <strong>
+            Tambah Voucher
+        </strong>
+
+
+        <input
+            type="text"
+            id="voucherCode"
+            placeholder="Masukkan kode voucher"
+        >
+
+
+        <button
+            onclick="simpanVoucher()"
+            type="button"
+        >
+            Simpan
+        </button>
+
+    </section>
+
+
+    <div
+        id="savedVoucherList"
+        class="saved-voucher-list"
+    >
+    </div>
+
+
+    <div class="category-bar">
+
+
+        <button
+            class="category active"
+            onclick="showCategory('semua', this)"
+            type="button"
+        >
+            Semua
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('geboy', this)"
+            type="button"
+        >
+            Geboy
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('vip', this)"
+            type="button"
+        >
+            GeboyVIP
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('toko', this)"
+            type="button"
+        >
+            Toko
+        </button>
+
+
+        <button
+            class="category"
+            onclick="showCategory('food', this)"
+            type="button"
+        >
+            GeboyFood
+        </button>
+
+
+        <div class="more-container">
+
+
+            <button
+                class="category more-button"
+                onclick="toggleMore()"
+                type="button"
+            >
+                More ▾
+            </button>
+
+
+            <div
+                class="more-menu"
+                id="moreMenu"
+            >
+
+                <button
+                    onclick="showCategory('geboypay', null)"
+                    type="button"
+                >
+                    Voucher GeboyPay
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <section
+        id="voucherList"
+        class="voucher-list"
+    >
+    </section>
+
+</main>
+
+
+<script src="voucher.js"></script>
+
+</body>
+
+</html>

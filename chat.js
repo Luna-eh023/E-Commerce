@@ -1,3 +1,5 @@
+// ===== Halaman chat.html =====
+
 if (document.body.classList.contains("halaman-chat")) {
 
   var data = [
@@ -159,22 +161,27 @@ if (document.body.classList.contains("halaman-chat")) {
               chat[i].pesan;
           messages.appendChild(pesan);
       }
+
       messages.scrollTop =
           messages.scrollHeight;
   }
-  
+
   function kirimPesan() {
       var teks =
           messageInput.value;
+
       if (teks == "") {
           return;
       }
+
       data[chatSekarang].chat.push({
           pesan: teks,
           dari: "saya"
       });
+
       data[chatSekarang].pesan =
           teks;
+
       messageInput.value = "";
 
       tampilkanPesan();
@@ -209,141 +216,197 @@ if (document.body.classList.contains("halaman-chat")) {
 
 }
 
+
+// ===== CHAT di Dashboard (index.html) =====
+
 if (document.body.classList.contains("halaman-dashboard")) {
+
+  // CHAT POPUP
 
   const chatFloat =
       document.getElementById(
           "chatFloat"
       );
 
+
   const chatPopup =
       document.getElementById(
           "chatPopup"
       );
+
 
   const chatClose =
       document.getElementById(
           "chatClose"
       );
 
+
   const chatBadge =
       document.getElementById(
           "chatBadge"
       );
+
 
   const chatInput =
       document.getElementById(
           "chatInput"
       );
 
+
   const chatSend =
       document.getElementById(
           "chatSend"
       );
+
 
   const chatBody =
       document.querySelector(
           ".chat-body"
       );
 
+
+  // BUKA CHAT
+
   if (
       chatFloat &&
       chatPopup
   ) {
+
       chatFloat.addEventListener(
           "click",
           (event) => {
+
               event.stopPropagation();
+
 
               chatPopup
                   .classList
                   .toggle("show");
 
+
               if (chatBadge) {
+
                   chatBadge.style.visibility =
                       "hidden";
+
               }
+
           }
       );
+
   }
 
+
+  // TUTUP CHAT
+
   if (chatClose) {
+
       chatClose.addEventListener(
           "click",
           (event) => {
+
               event.stopPropagation();
+
 
               chatPopup
                   .classList
                   .remove("show");
+
           }
       );
+
   }
+
+
+  // KIRIM PESAN
 
   if (
       chatSend &&
       chatInput &&
       chatBody
   ) {
+
       chatSend.addEventListener(
           "click",
           () => {
+
               const text =
                   chatInput.value.trim();
+
 
               if (
                   text === ""
               ) {
+
                   return;
+
               }
+
 
               const message =
                   document.createElement(
                       "div"
                   );
 
+
               message.className =
                   "chat-message user";
 
+
               message.innerHTML = `
+
                   <p>
                       ${text}
                   </p>
+
                   <small>
                       Baru saja
                   </small>
 
               `;
 
+
               chatBody.appendChild(
                   message
               );
 
+
               chatInput.value =
                   "";
 
+
               chatBody.scrollTop =
                   chatBody.scrollHeight;
+
           }
       );
+
 
       chatInput.addEventListener(
           "keydown",
           (event) => {
+
               if (
                   event.key ===
                   "Enter"
               ) {
+
                   chatSend.click();
+
               }
 
           }
       );
+
   }
+
+
+  // KLIK DI LUAR CHAT
 
   document.addEventListener(
       "click",
       (event) => {
+
           if (
               chatPopup &&
               chatFloat &&
@@ -354,10 +417,14 @@ if (document.body.classList.contains("halaman-dashboard")) {
                   event.target
               )
           ) {
+
               chatPopup
                   .classList
                   .remove("show");
+
           }
+
       }
   );
+
 }
