@@ -1,24 +1,57 @@
+/* ===== SEARCH di Dashboard (popup / ikon) ===== */
+
+/* HEADER SEARCH */
+
 .header-search {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 220px;
-    padding: 8px 12px;
-    border-radius: 12px;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.1);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    min-width:
+        220px;
+
+    padding:
+        8px 12px;
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
 }
 
 .header-search span {
-    font-size: 14px;
+
+    font-size:
+        14px;
 }
 
 .header-search input {
-    width: 100%;
-    background: transparent;
-    border: 0;
-    outline: none;
-    color: white;
+
+    width:
+        100%;
+
+    background:
+        transparent;
+
+    border:
+        0;
+
+    outline:
+        none;
+
+    color:
+        white;
 }
 
 .header-search input::placeholder {
@@ -37,6 +70,8 @@
                     180px;
     }
 }
+
+/* ===== Halaman search.html (dibatasi dengan class body .halaman-search) ===== */
 
 .halaman-search, .halaman-search * {
     box-sizing: border-box;
@@ -128,6 +163,8 @@
             width: 100%;
     }
 }
+
+/* FONT BAUMANS */
 
 .halaman-search h1, .halaman-search h2, .halaman-search h3 {
   font-family: Baumans, cursive;

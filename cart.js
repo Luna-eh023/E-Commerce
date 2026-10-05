@@ -189,7 +189,34 @@ if (checkoutBtn) {
       return;
     }
 
-    message.textContent = "Checkout berhasil.";
+    // Simpan setiap barang di keranjang sebagai pesanan baru
+    let orders = [];
+    try {
+      orders = JSON.parse(localStorage.getItem("geboy_orders")) || [];
+    } catch (error) {
+      orders = [];
+    }
+
+    cart.forEach((item) => {
+      orders.push({
+        id: item.id,
+        nama: item.nama,
+        harga: Number(item.harga),
+        jumlah: item.jumlah,
+        icon: item.icon,
+        status: "dikirim",
+        waktu: Date.now()
+      });
+    });
+
+    localStorage.setItem("geboy_orders", JSON.stringify(orders));
+    localStorage.removeItem(CART_KEY);
+
+    message.textContent = "Checkout berhasil, pesanan dikirim. Mengarahkan ke Status Pesanan...";
+
+    setTimeout(() => {
+      window.location.href = "status-pesanan.html";
+    }, 700);
   });
 }
 

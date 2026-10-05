@@ -1,3 +1,5 @@
+// ===== Halaman search.html =====
+
 if (document.body.classList.contains("halaman-search")) {
 
   var searchInput =
@@ -25,6 +27,7 @@ if (document.body.classList.contains("halaman-search")) {
   ];
 
   function rekomendasiRandom() {
+
       var hasil = [];
       while (hasil.length < 5) {
           var index =
@@ -41,6 +44,7 @@ if (document.body.classList.contains("halaman-search")) {
   }
 
   function tampilkanRekomendasi() {
+
       var keyword =
           searchInput.value
               .toLowerCase()
@@ -51,10 +55,13 @@ if (document.body.classList.contains("halaman-search")) {
       var hasil = [];
 
       if (keyword == "") {
+
           hasil = rekomendasiRandom();
 
       } else {
+
           for (var i = 0; i < searchData.length; i++) {
+
               var nama =
                   searchData[i].toLowerCase();
               if (nama.includes(keyword)) {
@@ -64,6 +71,7 @@ if (document.body.classList.contains("halaman-search")) {
       }
 
       if (hasil.length == 0) {
+
           suggestions.innerHTML =
               '<div class="no-result">' +
                   'Tidak ada rekomendasi' +
@@ -76,6 +84,7 @@ if (document.body.classList.contains("halaman-search")) {
       }
 
       for (var i = 0; i < hasil.length; i++) {
+
           var item =
               document.createElement("div");
 
@@ -89,106 +98,145 @@ if (document.body.classList.contains("halaman-search")) {
               '</span>';
 
           item.onclick = function() {
+
               searchInput.value =
                   this.querySelector("span").innerHTML;
 
               suggestions.style.display =
                   "none";
           };
+
           suggestions.appendChild(item);
       }
+
       suggestions.style.display =
           "block";
   }
 
   searchInput.onfocus = function() {
+
       tampilkanRekomendasi();
   };
 
   searchInput.oninput = function() {
+
       tampilkanRekomendasi();
   };
 
   document.onclick = function(event) {
+
       if (
           !event.target.closest(
               ".search-container"
           )
       ) {
+
           suggestions.style.display =
               "none";
       }
   };
+
 }
 
+
+// ===== SEARCH di Dashboard (index.html) =====
+
 if (document.body.classList.contains("halaman-dashboard")) {
+
+  // SEARCH
 
   const searchInput =
       document.getElementById(
           "searchInput"
       );
 
+
   if (searchInput) {
+
       searchInput.addEventListener(
           "input",
           () => {
+
               const keyword =
                   searchInput.value
                       .trim()
                       .toLowerCase();
 
+
               productCards.forEach(
                   (card) => {
+
                       const name =
                           card.dataset.name
                               .toLowerCase();
 
+
                       const category =
                           card.dataset.category
                               .toLowerCase();
+
 
                       const match =
                           keyword === "" ||
                           name.includes(keyword) ||
                           category.includes(keyword);
 
+
                       const categoryMatch =
                           selectedCategory === "all" ||
                           card.dataset.category ===
                               selectedCategory;
 
+
                       card.style.display =
                           match && categoryMatch
                               ? "block"
                               : "none";
+
                   }
               );
 
+
               if (keyword) {
+
                   productInfo.textContent =
                       `Hasil pencarian untuk "${searchInput.value}".`;
+
               }
 
               else {
+
                   const names = {
+
                       all:
                           "semua produk",
+
                       hp:
                           "kategori Handphone",
+
                       elektronik:
                           "kategori Elektronik",
+
                       hewan:
                           "kategori Perawatan Hewan",
+
                       keuangan:
                           "kategori Keuangan",
+
                       komputer:
                           "kategori Komputer"
+
                   };
+
 
                   productInfo.textContent =
                       `Menampilkan ${names[selectedCategory]}.`;
+
               }
+
           }
       );
+
   }
+
 }

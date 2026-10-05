@@ -1,0 +1,1393 @@
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --green-main: #5ABC81;
+
+    --green-dark: #479d6b;
+
+    --green-light: #eaf8f0;
+
+    --green-soft: #f2fbf6;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    background:
+        #f8faf9;
+
+    color:
+        #333;
+
+}
+
+
+a {
+
+    text-decoration:
+        none;
+
+    color:
+        inherit;
+
+}
+
+
+/* NAVBAR */
+
+.navbar {
+
+    min-height:
+        75px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5ABC81,
+            #65c88d
+        );
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    padding:
+        0 45px;
+
+    color:
+        white;
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+}
+
+
+.logo-area {
+
+    width:
+        260px;
+
+}
+
+
+.logo-text {
+
+    font-family:
+        "Baumans",
+        cursive;
+
+    font-size:
+        30px;
+
+}
+
+
+.nav-menu {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.nav-menu a {
+
+    color:
+        white;
+
+    padding:
+        12px 20px;
+
+    font-size:
+        16px;
+
+    border-radius:
+        6px;
+
+    transition:
+        .2s;
+
+}
+
+
+.nav-menu a:hover {
+
+    background:
+        rgba(255,255,255,.15);
+
+}
+
+
+.nav-menu a.active {
+
+    background:
+        rgba(255,255,255,.22);
+
+}
+
+
+.nav-right {
+
+    margin-left:
+        auto;
+
+}
+
+
+.back-button {
+
+    padding:
+        9px 14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.5);
+
+    border-radius:
+        7px;
+
+    font-size:
+        13px;
+
+}
+
+
+/* CONTENT */
+
+.container {
+
+    width:
+        92%;
+
+    max-width:
+        1200px;
+
+    margin:
+        35px auto;
+
+}
+
+
+h1 {
+
+    font-size:
+        28px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+/* COIN HEADER */
+
+.coin-header {
+
+    min-height:
+        170px;
+
+    padding:
+        30px 35px;
+
+    border-radius:
+        12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #28894f,
+            #044720
+        );
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    box-shadow:
+        0 5px 18px
+        rgba(90,188,129,.18);
+
+}
+
+
+.coin-header-left {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+}
+
+
+.main-coin-image {
+
+    width:
+        92px;
+
+    height:
+        92px;
+
+    object-fit:
+        contain;
+
+}
+
+
+.coin-small-title {
+
+    font-size:
+        16px;
+
+    opacity:
+        .9;
+
+}
+
+
+.coin-balance {
+
+    display:
+        flex;
+
+    align-items:
+        baseline;
+
+    gap:
+        8px;
+
+    margin-top:
+        3px;
+
+    font-size:
+        19px;
+
+}
+
+
+.coin-balance #coinBalance {
+
+    font-size:
+        42px;
+
+    font-weight:
+        bold;
+
+}
+
+
+.get-coin-button {
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
+
+    background:
+        white;
+
+    color:
+        var(--green-dark);
+
+    border-radius:
+        8px;
+
+    padding:
+        13px 20px;
+
+    font-size:
+        15px;
+
+    cursor:
+        pointer;
+
+    transition:
+        .2s;
+
+}
+
+
+.get-coin-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 12px
+        rgba(0,0,0,.1);
+
+}
+
+
+.get-coin-button span {
+
+    font-size:
+        22px;
+
+    margin-left:
+        5px;
+
+}
+
+
+/* COIN INFO */
+
+.coin-info {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #e4e8e5;
+
+    display:
+        flex;
+
+    gap:
+        60px;
+
+    padding:
+        20px 25px;
+
+    margin-top:
+        18px;
+
+    border-radius:
+        8px;
+
+}
+
+
+.coin-info div {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+}
+
+
+.coin-info strong {
+
+    font-size:
+        13px;
+
+    color:
+        #555;
+
+}
+
+
+.coin-info span {
+
+    color:
+        var(--green-dark);
+
+    font-weight:
+        bold;
+
+    font-size:
+        14px;
+
+}
+
+
+/* TABS */
+
+.coin-tabs {
+
+    margin-top:
+        25px;
+
+    display:
+        flex;
+
+    background:
+        white;
+
+    border-bottom:
+        1px solid #ddd;
+
+}
+
+
+.coin-tab {
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    padding:
+        16px 35px;
+
+    font-size:
+        15px;
+
+    color:
+        #555;
+
+    cursor:
+        pointer;
+
+    border-bottom:
+        2px solid transparent;
+
+}
+
+
+.coin-tab:hover {
+
+    color:
+        var(--green-main);
+
+}
+
+
+.coin-tab.active {
+
+    color:
+        var(--green-main);
+
+    border-bottom-color:
+        var(--green-main);
+
+}
+
+
+.coin-tab-content {
+
+    margin-top:
+        20px;
+
+}
+
+
+.hidden {
+
+    display:
+        none !important;
+
+}
+
+
+/* REWARD HEADER */
+
+.reward-title {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #e2e7e4;
+
+    padding:
+        22px 25px;
+
+    border-radius:
+        8px 8px 0 0;
+
+}
+
+
+.reward-title h2 {
+
+    font-size:
+        20px;
+
+    margin:
+        0 0 5px;
+
+}
+
+
+.reward-title p {
+
+    color:
+        #777;
+
+    font-size:
+        14px;
+
+    margin:
+        0;
+
+}
+
+
+#streakText {
+
+    background:
+        var(--green-light);
+
+    color:
+        var(--green-dark);
+
+    padding:
+        8px 14px;
+
+    border-radius:
+        20px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+}
+
+
+/* REWARD DAYS */
+
+.reward-days {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #e2e7e4;
+
+    border-top:
+        none;
+
+    padding:
+        20px;
+
+    gap:
+        10px;
+
+}
+
+
+.reward-day {
+
+    min-height:
+        135px;
+
+    background:
+        #f5f7f6;
+
+    border-radius:
+        8px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    position:
+        relative;
+
+    border:
+        1px solid
+        transparent;
+
+    transition:
+        .2s;
+
+}
+
+
+.reward-day.current {
+
+    border-color:
+        var(--green-main);
+
+    background:
+        var(--green-soft);
+
+}
+
+
+.reward-day.claimed {
+
+    background:
+        #eaf7ef;
+
+    color:
+        var(--green-dark);
+
+}
+
+
+.reward-day.locked {
+
+    opacity:
+        .65;
+
+}
+
+
+.reward-day-number {
+
+    font-size:
+        12px;
+
+    color:
+        #777;
+
+}
+
+
+.reward-day-coin {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #67c88d,
+            #459f6d
+        );
+
+    color:
+        white;
+
+    font-weight:
+        bold;
+
+    font-size:
+        20px;
+
+}
+
+
+.reward-day-amount {
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+    color:
+        #444;
+
+}
+
+
+.reward-check {
+
+    position:
+        absolute;
+
+    right:
+        7px;
+
+    top:
+        7px;
+
+    width:
+        21px;
+
+    height:
+        21px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--green-main);
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-size:
+        12px;
+
+}
+
+
+/* CLAIM */
+
+.claim-area {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #e2e7e4;
+
+    border-top:
+        none;
+
+    padding:
+        25px;
+
+    text-align:
+        center;
+
+}
+
+
+.claim-message {
+
+    color:
+        #777;
+
+    font-size:
+        14px;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.claim-coin-button {
+
+    border:
+        none;
+
+    background:
+        var(--green-main);
+
+    color:
+        white;
+
+    padding:
+        12px 28px;
+
+    border-radius:
+        5px;
+
+    font-size:
+        14px;
+
+    cursor:
+        pointer;
+
+    transition:
+        .2s;
+
+}
+
+
+.claim-coin-button:hover {
+
+    background:
+        var(--green-dark);
+
+}
+
+
+.claim-coin-button:disabled {
+
+    background:
+        #bfcac3;
+
+    cursor:
+        not-allowed;
+
+}
+
+
+/* EXTRA COIN */
+
+.extra-coin-box {
+
+    margin-top:
+        20px;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #e2e7e4;
+
+    border-radius:
+        8px;
+
+    padding:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+}
+
+
+.extra-coin-icon {
+
+    width:
+        50px;
+
+    height:
+        50px;
+
+    min-width:
+        50px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #67c88d,
+            #459f6d
+        );
+
+    color:
+        white;
+
+    font-size:
+        24px;
+
+    font-weight:
+        bold;
+
+}
+
+
+.extra-coin-box div:nth-child(2) {
+
+    flex:
+        1;
+
+}
+
+
+.extra-coin-box strong {
+
+    font-size:
+        15px;
+
+}
+
+
+.extra-coin-box p {
+
+    color:
+        #777;
+
+    font-size:
+        13px;
+
+    margin:
+        5px 0 0;
+
+}
+
+
+.extra-coin-box button {
+
+    border:
+        1px solid
+        var(--green-main);
+
+    color:
+        var(--green-dark);
+
+    background:
+        white;
+
+    padding:
+        9px 15px;
+
+    border-radius:
+        4px;
+
+    cursor:
+        pointer;
+
+}
+
+
+.extra-coin-box button:hover {
+
+    background:
+        var(--green-main);
+
+    color:
+        white;
+
+}
+
+
+/* HISTORY */
+
+.history-header {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #e2e7e4;
+
+    padding:
+        20px 25px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+}
+
+
+.history-header h2 {
+
+    font-size:
+        20px;
+
+    margin:
+        0;
+
+}
+
+
+.history-header span {
+
+    font-size:
+        13px;
+
+    color:
+        var(--green-dark);
+
+}
+
+
+.coin-history {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #e2e7e4;
+
+    border-top:
+        none;
+
+}
+
+
+.coin-history-item {
+
+    padding:
+        17px 22px;
+
+    border-bottom:
+        1px solid #eee;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+}
+
+
+.coin-history-item:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+.history-left {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+}
+
+
+.history-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--green-light);
+
+    color:
+        var(--green-dark);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-weight:
+        bold;
+
+}
+
+
+.history-title {
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+}
+
+
+.history-date {
+
+    color:
+        #999;
+
+    font-size:
+        12px;
+
+    margin-top:
+        3px;
+
+}
+
+
+.history-amount {
+
+    font-weight:
+        bold;
+
+    color:
+        var(--green-dark);
+
+}
+
+
+.history-amount.minus {
+
+    color:
+        #d9534f;
+
+}
+
+
+/* TOAST */
+
+.toast-message {
+
+    position:
+        fixed;
+
+    right:
+        25px;
+
+    bottom:
+        25px;
+
+    background:
+        #333;
+
+    color:
+        white;
+
+    padding:
+        13px 18px;
+
+    border-radius:
+        6px;
+
+    font-size:
+        14px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.18);
+
+    z-index:
+        9999;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        .25s;
+
+}
+
+
+.toast-message.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .navbar {
+
+        padding:
+            10px 20px;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .logo-area {
+
+        width:
+            auto;
+
+    }
+
+
+    .nav-menu {
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .nav-menu a {
+
+        padding:
+            9px;
+
+        font-size:
+            13px;
+
+    }
+
+
+    .coin-header {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            20px;
+
+    }
+
+
+    .get-coin-button {
+
+        width:
+            100%;
+
+    }
+
+
+    .coin-info {
+
+        flex-direction:
+            column;
+
+        gap:
+            15px;
+
+    }
+
+
+    .reward-days {
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .reward-days {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .extra-coin-box {
+
+        align-items:
+            flex-start;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .extra-coin-box button {
+
+        width:
+            100%;
+
+    }
+
+
+    .main-coin-image {
+
+        width:
+            75px;
+
+        height:
+            75px;
+
+    }
+
+
+    .coin-balance #coinBalance {
+
+        font-size:
+            34px;
+
+    }
+
+}

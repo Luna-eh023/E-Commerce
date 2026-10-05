@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Geboy - Bonus Coin</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baumans&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="bonus.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo-area">
+
+        <a
+            href="index.html"
+            class="logo-text"
+        >
+            Geboy
+        </a>
+
+    </div>
+
+
+    <nav class="nav-menu">
+
+        <a href="akun.html">
+            Profil Akun
+        </a>
+
+        <a href="voucher.html">
+            Voucher
+        </a>
+
+        <a
+            href="bonus.html"
+            class="active"
+        >
+            Bonus Coin
+        </a>
+
+    </nav>
+
+
+    <div class="nav-right">
+
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Dashboard
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+    <h1>
+        Bonus Coin
+    </h1>
+
+
+    <div class="coin-header">
+
+        <div class="coin-header-left">
+
+            <img
+                src="images/coin.png"
+                alt="Coin Geboy"
+                class="main-coin-image"
+            >
+
+
+            <div>
+
+                <span class="coin-small-title">
+                    Coin Geboy
+                </span>
+
+
+                <div class="coin-balance">
+
+                    <span id="coinBalance">
+                        160
+                    </span>
+
+                    <span>
+                        Coin
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="get-coin-button"
+            onclick="scrollToReward()"
+            type="button"
+        >
+
+            Dapatkan Coin
+
+            <span>
+                ›
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <div class="coin-info">
+
+
+        <div>
+
+            <strong>
+                Coin tersedia
+            </strong>
+
+            <span id="coinAvailable">
+                160 Coin
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Coin akan berakhir
+            </strong>
+
+            <span>
+                31-12-2026
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="coin-tabs">
+
+
+        <button
+            class="coin-tab active"
+            onclick="showCoinTab('reward', this)"
+            type="button"
+        >
+            Dapatkan
+        </button>
+
+
+        <button
+            class="coin-tab"
+            onclick="showCoinTab('history', this)"
+            type="button"
+        >
+            Riwayat Coin
+        </button>
+
+    </div>
+
+
+    <div
+        id="rewardCoinSection"
+        class="coin-tab-content"
+    >
+
+
+        <div class="reward-title">
+
+
+            <div>
+
+                <h2>
+                    Bonus Coin Harian
+                </h2>
+
+
+                <p>
+                    Klaim coin setiap hari untuk mendapatkan bonus tambahan.
+                </p>
+
+            </div>
+
+
+            <span id="streakText">
+                Hari 1
+            </span>
+
+        </div>
+
+
+        <div
+            class="reward-days"
+            id="rewardDays"
+        >
+        </div>
+
+
+        <div class="claim-area">
+
+
+            <div
+                id="claimMessage"
+                class="claim-message"
+            >
+                Klaim coin hari ini untuk mendapatkan bonus.
+            </div>
+
+
+            <button
+                id="claimCoinButton"
+                class="claim-coin-button"
+                onclick="claimDailyCoin()"
+                type="button"
+            >
+                Klaim Coin Hari Ini
+            </button>
+
+        </div>
+
+
+        <div class="extra-coin-box">
+
+
+            <div class="extra-coin-icon">
+                G
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Bonus Coin Tambahan
+                </strong>
+
+
+                <p>
+                    Selesaikan aktivitas sederhana untuk mendapatkan coin.
+                </p>
+
+            </div>
+
+
+            <button
+                onclick="claimExtraCoin()"
+                type="button"
+            >
+                +10 Coin
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="historyCoinSection"
+        class="coin-tab-content hidden"
+    >
+
+
+        <div class="history-header">
+
+            <h2>
+                Riwayat Coin
+            </h2>
+
+
+            <span id="historyTotal">
+                Saldo 160 Coin
+            </span>
+
+        </div>
+
+
+        <div
+            id="coinHistory"
+            class="coin-history"
+        >
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="bonus.js"></script>
+
+</body>
+
+</html>

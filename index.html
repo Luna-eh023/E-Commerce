@@ -5,22 +5,20 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>GEBOY SHOP</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notif.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="cart.css">
 
 </head>
 
 
-<body>
+<body class="halaman-dashboard">
 
 
     <!-- NAVBAR -->
@@ -30,30 +28,19 @@
         <div class="navbar-left">
 
 
-            <a
-                href="index.html"
-                class="logo"
-            >
+            <a href="index.html" class="logo">
                 GEBOY SHOP
             </a>
 
 
             <div class="menu-wrapper">
 
-                <button
-                    class="menu-btn"
-                    id="menuBtn"
-                    type="button"
-                    aria-expanded="false"
-                >
+                <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false">
                     Menu ▾
                 </button>
 
 
-                <div
-                    class="menu-dropdown"
-                    id="menuDropdown"
-                >
+                <div class="menu-dropdown" id="menuDropdown">
 
                     <a href="search.html">
                         🔎 Search
@@ -71,26 +58,25 @@
                         ❓ FAQ
                     </a>
 
-
-                    <span class="disabled-menu">
+                    <a href="lacak.html">
                         📦 Lacak Barang
-                    </span>
+                    </a>
 
-                    <span class="disabled-menu">
+                    <a href="status-pesanan.html">
                         📋 Status Pesanan
-                    </span>
+                    </a>
 
-                    <span class="disabled-menu">
+                    <a href="akun.html">
                         👤 Profil Akun
-                    </span>
+                    </a>
 
-                    <span class="disabled-menu">
+                    <a href="voucher.html">
                         🎟️ Voucher
-                    </span>
+                    </a>
 
-                    <span class="disabled-menu">
+                    <a href="bonus.html">
                         🎁 Bonus
-                    </span>
+                    </a>
 
                     <span class="disabled-menu">
                         💳 Payment
@@ -109,26 +95,17 @@
             </div>
 
 
-            <a
-                href="#produk"
-                class="nav-link"
-            >
+            <a href="#produk" class="nav-link">
                 Produk
             </a>
 
 
-            <a
-                href="faq.html"
-                class="nav-link"
-            >
+            <a href="faq.html" class="nav-link">
                 Bantuan
             </a>
 
 
-            <a
-                href="#kontak"
-                class="nav-link"
-            >
+            <a href="#kontak" class="nav-link">
                 Kontak
             </a>
 
@@ -150,11 +127,7 @@
                 </span>
 
 
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Cari produk..."
-                >
+                <input type="text" id="searchInput" placeholder="Cari produk...">
 
             </div>
 
@@ -162,40 +135,22 @@
 
             <!-- NOTIFICATION -->
 
-            <button
-                class="notification-bell"
-                id="notificationBell"
-                type="button"
-                aria-label="Notifikasi"
-            >
+            <button class="notification-bell" id="notificationBell" type="button" aria-label="Notifikasi">
 
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
 
-                    <path
-                        d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
-                    >
+                    <path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9">
                     </path>
 
 
-                    <path
-                        d="M10.3 21a1.9 1.9 0 0 0 3.4 0"
-                    >
+                    <path d="M10.3 21a1.9 1.9 0 0 0 3.4 0">
                     </path>
 
                 </svg>
 
 
-                <span
-                    class="notification-badge"
-                    id="notificationBadge"
-                >
+                <span class="notification-badge" id="notificationBadge">
                     4
                 </span>
 
@@ -205,18 +160,12 @@
 
             <!-- CART -->
 
-            <a
-                href="cart.html"
-                class="cart-button"
-            >
+            <a href="cart.html" class="cart-button">
 
                 🛒
 
 
-                <span
-                    class="cart-count"
-                    id="cartCount"
-                >
+                <span class="cart-count" id="cartCount">
                     0
                 </span>
 
@@ -230,10 +179,7 @@
 
     <!-- POPUP NOTIFIKASI -->
 
-    <div
-        class="notification-popup"
-        id="notificationPopup"
-    >
+    <div class="notification-popup" id="notificationPopup">
 
 
         <div class="notification-popup-header">
@@ -252,11 +198,7 @@
             </div>
 
 
-            <button
-                class="notification-close"
-                id="notificationClose"
-                type="button"
-            >
+            <button class="notification-close" id="notificationClose" type="button">
                 ×
             </button>
 
@@ -264,20 +206,8 @@
 
 
 
-        <div
-            class="notification-list"
-            id="notificationList"
-        >
+        <div class="notification-list" id="notificationList">
         </div>
-
-
-
-        <a
-            href="notif.html"
-            class="notification-more"
-        >
-            Lihat semua notifikasi
-        </a>
 
     </div>
 
@@ -309,10 +239,7 @@
                 </p>
 
 
-                <a
-                    href="#produk"
-                    class="hero-button"
-                >
+                <a href="#produk" class="hero-button">
                     Belanja Sekarang
                 </a>
 
@@ -348,12 +275,7 @@
                 </div>
 
 
-                <button
-                    class="category-toggle"
-                    id="categoryToggle"
-                    type="button"
-                    aria-expanded="false"
-                >
+                <button class="category-toggle" id="categoryToggle" type="button" aria-expanded="false">
                     Buka Kategori
                 </button>
 
@@ -361,17 +283,10 @@
 
 
 
-            <div
-                class="category-grid"
-                id="categoryPanel"
-            >
+            <div class="category-grid" id="categoryPanel">
 
 
-                <button
-                    class="category-card"
-                    data-category-card="all"
-                    type="button"
-                >
+                <button class="category-card" data-category-card="all" type="button">
 
                     <span class="category-icon">
                         🛍️
@@ -391,11 +306,7 @@
 
 
 
-                <button
-                    class="category-card"
-                    data-category-card="hp"
-                    type="button"
-                >
+                <button class="category-card" data-category-card="hp" type="button">
 
                     <span class="category-icon">
                         📱
@@ -415,11 +326,7 @@
 
 
 
-                <button
-                    class="category-card"
-                    data-category-card="elektronik"
-                    type="button"
-                >
+                <button class="category-card" data-category-card="elektronik" type="button">
 
                     <span class="category-icon">
                         🎧
@@ -439,11 +346,7 @@
 
 
 
-                <button
-                    class="category-card"
-                    data-category-card="hewan"
-                    type="button"
-                >
+                <button class="category-card" data-category-card="hewan" type="button">
 
                     <span class="category-icon">
                         🐾
@@ -463,11 +366,7 @@
 
 
 
-                <button
-                    class="category-card"
-                    data-category-card="keuangan"
-                    type="button"
-                >
+                <button class="category-card" data-category-card="keuangan" type="button">
 
                     <span class="category-icon">
                         💰
@@ -487,11 +386,7 @@
 
 
 
-                <button
-                    class="category-card"
-                    data-category-card="komputer"
-                    type="button"
-                >
+                <button class="category-card" data-category-card="komputer" type="button">
 
                     <span class="category-icon">
                         💻
@@ -516,56 +411,32 @@
             <div class="category-detail-wrapper">
 
 
-                <button
-                    class="category-detail active"
-                    data-category="all"
-                    type="button"
-                >
+                <button class="category-detail active" data-category="all" type="button">
                     Semua
                 </button>
 
 
-                <button
-                    class="category-detail"
-                    data-category="hp"
-                    type="button"
-                >
+                <button class="category-detail" data-category="hp" type="button">
                     Handphone
                 </button>
 
 
-                <button
-                    class="category-detail"
-                    data-category="elektronik"
-                    type="button"
-                >
+                <button class="category-detail" data-category="elektronik" type="button">
                     Elektronik
                 </button>
 
 
-                <button
-                    class="category-detail"
-                    data-category="hewan"
-                    type="button"
-                >
+                <button class="category-detail" data-category="hewan" type="button">
                     Perawatan Hewan
                 </button>
 
 
-                <button
-                    class="category-detail"
-                    data-category="keuangan"
-                    type="button"
-                >
+                <button class="category-detail" data-category="keuangan" type="button">
                     Keuangan
                 </button>
 
 
-                <button
-                    class="category-detail"
-                    data-category="komputer"
-                    type="button"
-                >
+                <button class="category-detail" data-category="komputer" type="button">
                     Komputer
                 </button>
 
@@ -600,18 +471,12 @@
 
             <div class="service-tabs">
 
-                <button
-                    class="service-tab active"
-                    type="button"
-                >
+                <button class="service-tab active" type="button">
                     Top Up
                 </button>
 
 
-                <button
-                    class="service-tab"
-                    type="button"
-                >
+                <button class="service-tab" type="button">
                     Tagihan
                 </button>
 
@@ -707,10 +572,7 @@
 
         <!-- PRODUCTS -->
 
-        <section
-            class="section"
-            id="produk"
-        >
+        <section class="section" id="produk">
 
 
             <div class="section-header">
@@ -742,11 +604,7 @@
 
                 <!-- PRODUK 1 -->
 
-                <div
-                    class="product-card"
-                    data-category="hp"
-                    data-name="iPhone 15"
-                >
+                <div class="product-card" data-category="hp" data-name="iPhone 15">
 
                     <div class="product-image">
                         📱
@@ -775,14 +633,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="1"
-                            data-name="iPhone 15"
-                            data-price="12999000"
-                            data-icon="📱"
-                        >
+                        <button class="add-cart" type="button" data-id="1" data-name="iPhone 15" data-price="12999000"
+                            data-icon="📱">
                             + Keranjang
                         </button>
 
@@ -794,11 +646,7 @@
 
                 <!-- PRODUK 2 -->
 
-                <div
-                    class="product-card"
-                    data-category="hp"
-                    data-name="Samsung Galaxy S24"
-                >
+                <div class="product-card" data-category="hp" data-name="Samsung Galaxy S24">
 
                     <div class="product-image">
                         📱
@@ -827,14 +675,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="2"
-                            data-name="Samsung Galaxy S24"
-                            data-price="13499000"
-                            data-icon="📱"
-                        >
+                        <button class="add-cart" type="button" data-id="2" data-name="Samsung Galaxy S24"
+                            data-price="13499000" data-icon="📱">
                             + Keranjang
                         </button>
 
@@ -846,11 +688,7 @@
 
                 <!-- PRODUK 3 -->
 
-                <div
-                    class="product-card"
-                    data-category="elektronik"
-                    data-name="Sony WH-1000XM5"
-                >
+                <div class="product-card" data-category="elektronik" data-name="Sony WH-1000XM5">
 
                     <div class="product-image">
                         🎧
@@ -879,14 +717,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="3"
-                            data-name="Sony WH-1000XM5"
-                            data-price="5299000"
-                            data-icon="🎧"
-                        >
+                        <button class="add-cart" type="button" data-id="3" data-name="Sony WH-1000XM5"
+                            data-price="5299000" data-icon="🎧">
                             + Keranjang
                         </button>
 
@@ -898,11 +730,7 @@
 
                 <!-- PRODUK 4 -->
 
-                <div
-                    class="product-card"
-                    data-category="elektronik"
-                    data-name="JBL Flip 6"
-                >
+                <div class="product-card" data-category="elektronik" data-name="JBL Flip 6">
 
                     <div class="product-image">
                         🔊
@@ -931,14 +759,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="4"
-                            data-name="JBL Flip 6"
-                            data-price="1899000"
-                            data-icon="🔊"
-                        >
+                        <button class="add-cart" type="button" data-id="4" data-name="JBL Flip 6" data-price="1899000"
+                            data-icon="🔊">
                             + Keranjang
                         </button>
 
@@ -950,11 +772,7 @@
 
                 <!-- PRODUK 5 -->
 
-                <div
-                    class="product-card"
-                    data-category="hewan"
-                    data-name="Royal Canin Dog Food"
-                >
+                <div class="product-card" data-category="hewan" data-name="Royal Canin Dog Food">
 
                     <div class="product-image">
                         🐶
@@ -983,14 +801,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="5"
-                            data-name="Royal Canin Dog Food"
-                            data-price="450000"
-                            data-icon="🐶"
-                        >
+                        <button class="add-cart" type="button" data-id="5" data-name="Royal Canin Dog Food"
+                            data-price="450000" data-icon="🐶">
                             + Keranjang
                         </button>
 
@@ -1002,11 +814,7 @@
 
                 <!-- PRODUK 6 -->
 
-                <div
-                    class="product-card"
-                    data-category="hewan"
-                    data-name="Cat Grooming Set"
-                >
+                <div class="product-card" data-category="hewan" data-name="Cat Grooming Set">
 
                     <div class="product-image">
                         🐱
@@ -1035,14 +843,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="6"
-                            data-name="Cat Grooming Set"
-                            data-price="175000"
-                            data-icon="🐱"
-                        >
+                        <button class="add-cart" type="button" data-id="6" data-name="Cat Grooming Set"
+                            data-price="175000" data-icon="🐱">
                             + Keranjang
                         </button>
 
@@ -1054,11 +856,7 @@
 
                 <!-- PRODUK 7 -->
 
-                <div
-                    class="product-card"
-                    data-category="keuangan"
-                    data-name="Saldo E-Wallet"
-                >
+                <div class="product-card" data-category="keuangan" data-name="Saldo E-Wallet">
 
                     <div class="product-image">
                         💳
@@ -1087,14 +885,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="7"
-                            data-name="Saldo E-Wallet"
-                            data-price="100000"
-                            data-icon="💳"
-                        >
+                        <button class="add-cart" type="button" data-id="7" data-name="Saldo E-Wallet"
+                            data-price="100000" data-icon="💳">
                             + Keranjang
                         </button>
 
@@ -1106,11 +898,7 @@
 
                 <!-- PRODUK 8 -->
 
-                <div
-                    class="product-card"
-                    data-category="keuangan"
-                    data-name="Voucher Dana"
-                >
+                <div class="product-card" data-category="keuangan" data-name="Voucher Dana">
 
                     <div class="product-image">
                         💰
@@ -1139,14 +927,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="8"
-                            data-name="Voucher Dana"
-                            data-price="200000"
-                            data-icon="💰"
-                        >
+                        <button class="add-cart" type="button" data-id="8" data-name="Voucher Dana" data-price="200000"
+                            data-icon="💰">
                             + Keranjang
                         </button>
 
@@ -1158,11 +940,7 @@
 
                 <!-- PRODUK 9 -->
 
-                <div
-                    class="product-card"
-                    data-category="komputer"
-                    data-name="Mechanical Keyboard"
-                >
+                <div class="product-card" data-category="komputer" data-name="Mechanical Keyboard">
 
                     <div class="product-image">
                         ⌨️
@@ -1191,14 +969,8 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="9"
-                            data-name="Mechanical Keyboard"
-                            data-price="799000"
-                            data-icon="⌨️"
-                        >
+                        <button class="add-cart" type="button" data-id="9" data-name="Mechanical Keyboard"
+                            data-price="799000" data-icon="⌨️">
                             + Keranjang
                         </button>
 
@@ -1210,11 +982,7 @@
 
                 <!-- PRODUK 10 -->
 
-                <div
-                    class="product-card"
-                    data-category="komputer"
-                    data-name="Gaming Mouse"
-                >
+                <div class="product-card" data-category="komputer" data-name="Gaming Mouse">
 
                     <div class="product-image">
                         🖱️
@@ -1243,142 +1011,14 @@
                         </strong>
 
 
-                        <button
-                            class="add-cart"
-                            type="button"
-                            data-id="10"
-                            data-name="Gaming Mouse"
-                            data-price="499000"
-                            data-icon="🖱️"
-                        >
+                        <button class="add-cart" type="button" data-id="10" data-name="Gaming Mouse" data-price="499000"
+                            data-icon="🖱️">
                             + Keranjang
                         </button>
 
                     </div>
 
                 </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- QUICK ACCESS -->
-
-        <section class="section">
-
-
-            <div class="section-header">
-
-                <div>
-
-                    <span class="section-label">
-                        QUICK ACCESS
-                    </span>
-
-
-                    <h2>
-                        Akses Cepat
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-grid">
-
-
-                <a
-                    href="search.html"
-                    class="quick-card"
-                >
-
-                    <span>
-                        🔎
-                    </span>
-
-
-                    <strong>
-                        Search
-                    </strong>
-
-
-                    <small>
-                        Cari sesuatu
-                    </small>
-
-                </a>
-
-
-
-                <a
-                    href="chat.html"
-                    class="quick-card"
-                >
-
-                    <span>
-                        💬
-                    </span>
-
-
-                    <strong>
-                        Chat
-                    </strong>
-
-
-                    <small>
-                        Hubungi penjual
-                    </small>
-
-                </a>
-
-
-
-                <a
-                    href="faq.html"
-                    class="quick-card"
-                >
-
-                    <span>
-                        ❓
-                    </span>
-
-
-                    <strong>
-                        FAQ
-                    </strong>
-
-
-                    <small>
-                        Bantuan pelanggan
-                    </small>
-
-                </a>
-
-
-
-                <a
-                    href="notif.html"
-                    class="quick-card"
-                >
-
-                    <span>
-                        🔔
-                    </span>
-
-
-                    <strong>
-                        Notifikasi
-                    </strong>
-
-
-                    <small>
-                        Lihat semua pesan
-                    </small>
-
-                </a>
 
             </div>
 
@@ -1402,8 +1042,7 @@
 
 
                     <p>
-                        E-Commerce sederhana untuk project
-                        Front End Programming.
+                        E-Commerce Digeboy.
                     </p>
 
                 </div>
@@ -1423,7 +1062,7 @@
 
 
                     <p>
-                        WhatsApp: 0812-3456-7890
+                        WhatsApp: rahasia🤫
                     </p>
 
                 </div>
@@ -1446,20 +1085,12 @@
 
     <!-- CHAT FLOAT -->
 
-    <button
-        class="chat-float"
-        id="chatFloat"
-        type="button"
-        aria-label="Chat"
-    >
+    <button class="chat-float" id="chatFloat" type="button" aria-label="Chat">
 
         💬
 
 
-        <span
-            class="chat-badge"
-            id="chatBadge"
-        >
+        <span class="chat-badge" id="chatBadge">
             1
         </span>
 
@@ -1469,10 +1100,7 @@
 
     <!-- CHAT POPUP -->
 
-    <div
-        class="chat-popup"
-        id="chatPopup"
-    >
+    <div class="chat-popup" id="chatPopup">
 
 
         <div class="chat-header">
@@ -1492,11 +1120,7 @@
             </div>
 
 
-            <button
-                class="chat-close"
-                id="chatClose"
-                type="button"
-            >
+            <button class="chat-close" id="chatClose" type="button">
                 ×
             </button>
 
@@ -1546,36 +1170,23 @@
 
         <div class="chat-input">
 
-            <input
-                type="text"
-                id="chatInput"
-                placeholder="Ketik pesan..."
-            >
+            <input type="text" id="chatInput" placeholder="Ketik pesan...">
 
 
-            <button
-                id="chatSend"
-                type="button"
-            >
+            <button id="chatSend" type="button">
                 ➤
             </button>
 
         </div>
-
-
-
-        <a
-            href="chat.html"
-            class="chat-more"
-        >
-            Buka Chat Lengkap
-        </a>
 
     </div>
 
 
 
     <script src="script.js"></script>
+    <script src="search.js"></script>
+    <script src="notif.js"></script>
+    <script src="chat.js"></script>
 
     <script src="cart.js"></script>
 
